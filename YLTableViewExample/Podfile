@@ -1,0 +1,11 @@
+platform :ios, '7.0'
+
+xcodeproj 'YLTableViewExample.xcodeproj'
+workspace '../YLTableView.xcworkspace'
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'YLTableViewExample' do
+  pod 'YLTableView', :path => '../'
+end
+

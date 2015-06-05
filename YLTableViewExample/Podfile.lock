@@ -1,0 +1,14 @@
+PODS:
+  - YLTableView (1.0.0)
+
+DEPENDENCIES:
+  - YLTableView (from `../`)
+
+EXTERNAL SOURCES:
+  YLTableView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  YLTableView: 83c011ee9ccc054ad2f62ac18907cc025ed85944
+
+COCOAPODS: 0.37.2
