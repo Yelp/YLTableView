@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary      = 'Yelp iOS table view framework'
   s.homepage     = 'https://github.com/Yelp/YLTableView'
   s.authors      = { 'Yelp iOS Team' => 'iphone@yelp.com' }
-  s.source       = { :git => 'https://github.com/Yelp/YLTableView.git', :tag => 'v' + s.version.to_s }
+  s.source       = { :git => 'ssh://git@github.com/Yelp/YLTableView.git', :tag => 'v' + s.version.to_s }
   s.requires_arc = true
 
   s.platform     = :ios
