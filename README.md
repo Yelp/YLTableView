@@ -7,7 +7,7 @@ YLTableView is a framework for working with UITableView used by a number of the 
 
 We recommend using CocoaPods to install YLTableView. To do so, add the following to your `Podfile`:
 
-```
+``` ruby
 pod 'YLTableView', '~> 1.0'
 ``` 
 
@@ -18,7 +18,7 @@ You can clone the project and check out the example app to see YLTableView in us
 
 All cells should take a model. Cells generally expect one specific type of model, while a given model could work with any number of cells. Start by creating a new `YLTableViewCell` subclass, and implementing `setModel:`:
 
-```
+``` objc
 @interface YLExampleTextCell : YLTableViewCell
 @end
 
@@ -35,7 +35,7 @@ This cell expects an NSString as its model, but your cell can use any object you
 ## Data Source
 To use YLTableView, you should subclass `YLTableViewDataSource`. After implementing a few simple methods, `YLTableViewDataSource` takes care of connecting cells to models.
 
-```
+``` objc
 @interface YLExampleTableViewDataSource : YLTableViewDataSource
 @property (copy, nonatomic) NSArray *models;
 @end
@@ -65,13 +65,12 @@ To use YLTableView, you should subclass `YLTableViewDataSource`. After implement
   return self.sectionModels.count;
 }
 @end
-
 ```
 
 ## Table View
 Finally, you can use a YLTableView to connect everything together.
 
-```
+``` objc
 @interface YLExampleViewController : UIViewController
 @end
 
