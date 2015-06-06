@@ -101,13 +101,13 @@ This is great when your cells have multiple buttons or actions that can push on 
 
 ![Images cell](readme_images/photo_swipe_cell.png)
 
-Check out [YLExampleImagesCell.m](YLTableViewExample/ImagesView/YLExampleImagesCell.m) for an example.
+Check out [YLExampleImagesCell.m](YLTableViewExample/Classes/ImagesView/YLExampleImagesCell.m) for an example.
 
 # Pull to Refresh
 
 YLTableView doesn't include a pull-to-refresh header, but makes it really easy to build your own. Simple subclass `YLRefreshHeaderView` and implement `setRefreshState:animated:`. Then you can set the `refreshHeader` property on `YLTableView` and add a listener for the `UIControlEventValueChanged` event on your refresh header.
 
-Check out [YLExampleRefreshHeader.m](YLTableViewExample/YLExampleRefreshHeader.m) for an example.
+Check out [YLExampleRefreshHeader.m](YLTableViewExample/Classes/YLExampleRefreshHeader.m) for an example.
 
 ## License
 
