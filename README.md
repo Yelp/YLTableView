@@ -2,6 +2,7 @@
 
 YLTableView is a framework for working with UITableView used by a number of the table views inside of the Yelp app. It makes it easy to work with cell models, allows your cells to have child view controllers, and provides a framework for building your own pull-to-refresh header.
 
+To learn more about the goals high-level architecture of YLTableView, check out our [blog post](http://engineeringblog.yelp.com/2015/06/advanced-uitableviews-made-simple-yltableview.html).
 
 ## Installation
 
