@@ -86,6 +86,8 @@ Finally, you can use a YLTableView to connect everything together.
   tableView.delegate = dataSource;
   
   // Registering cells and reuse identifiers
+  // Warning - This is not necessary if you're registering the cell explicitly 
+  // through storyboard prototype cells.
   [tableView registerClass:[YLExampleTextCell class] forCellReuseIdentifier:NSStringFromClass([YLExampleTextCell class])];
   
   self.view = tableView;
