@@ -8,6 +8,7 @@
 
 #import "YLTableView.h"
 
+NS_ASSUME_NONNULL_BEGIN
 @interface YLTableView ()
 
 //! Returns a cached cell for this reuse identifier. The cell should only be used for sizing purposes, not for display.
@@ -17,3 +18,4 @@
 - (YLTableViewSectionHeaderFooterView *)sizingHeaderFooterViewForReuseIdentifier:(NSString *)reuseIdentifier;
 
 @end
+NS_ASSUME_NONNULL_END

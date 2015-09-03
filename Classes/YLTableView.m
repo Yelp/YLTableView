@@ -16,6 +16,7 @@
 #import "YLTableViewDataSource.h"
 #import "YLTableViewSectionHeaderFooterView.h"
 
+NS_ASSUME_NONNULL_BEGIN
 @interface YLTableView ()
 
 //! Maps reuse identifiers to cell class strings
@@ -29,6 +30,7 @@
 @property (strong, nonatomic) NSMutableDictionary *sizingHeaderFooterViewsForReuseIdentifier;
 
 @end
+NS_ASSUME_NONNULL_END
 
 @implementation YLTableView
 
@@ -71,7 +73,7 @@
   }
 }
 
-- (YLTableViewCell *)sizingCellForReuseIdentifier:(NSString *)reuseIdentifier {
+- (nonnull YLTableViewCell *)sizingCellForReuseIdentifier:(nonnull NSString *)reuseIdentifier {
   NSAssert(reuseIdentifier != nil, @"Must have a reuse identifier.");
   NSAssert(self.cellClassForReuseIdentifier[reuseIdentifier], @"You must register a class for this reuse identifier.");
 
@@ -85,7 +87,7 @@
   return self.sizingCellForReuseIdentifier[reuseIdentifier];
 }
 
-- (YLTableViewSectionHeaderFooterView *)sizingHeaderFooterViewForReuseIdentifier:(NSString *)reuseIdentifier {
+- (nonnull YLTableViewSectionHeaderFooterView *)sizingHeaderFooterViewForReuseIdentifier:(nonnull NSString *)reuseIdentifier {
   NSAssert(reuseIdentifier != nil, @"Must have a reuse identifier.");
   NSAssert(self.headerFooterViewClassForReuseIdentifier[reuseIdentifier], @"You must register a class for this reuse identifier.");
 
@@ -94,7 +96,6 @@
     YLTableViewSectionHeaderFooterView *const sizingHeaderFooterView = [(YLTableViewSectionHeaderFooterView *)[headerFooterViewClass alloc] initWithReuseIdentifier:reuseIdentifier];
     self.sizingHeaderFooterViewsForReuseIdentifier[reuseIdentifier] = sizingHeaderFooterView;
   }
-
   return self.sizingHeaderFooterViewsForReuseIdentifier[reuseIdentifier];
 }
 
@@ -108,7 +109,7 @@
   self.refreshHeaderView.frame = CGRectMake(0, -self.frame.size.height, self.frame.size.width, self.frame.size.height);
 }
 
-- (void)setRefreshHeaderView:(YLRefreshHeaderView *)refreshHeaderView {
+- (void)setRefreshHeaderView:(nullable YLRefreshHeaderView *)refreshHeaderView {
   if (refreshHeaderView) {
     [self addSubview:refreshHeaderView];
     [self sendSubviewToBack:refreshHeaderView];

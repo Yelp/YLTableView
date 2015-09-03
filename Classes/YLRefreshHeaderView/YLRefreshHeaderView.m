@@ -61,7 +61,7 @@
 
 #pragma mark UIScrollViewDelegate
 
-- (void)containingScrollViewDidScroll:(UIScrollView *)scrollView {
+- (void)containingScrollViewDidScroll:(nonnull UIScrollView *)scrollView {
   if (scrollView.isDragging) {
     // If we were ready to refresh but then dragged back up, cancel the Ready to Refresh state.
     if (self.refreshState == YLRefreshHeaderViewStateReadyToRefresh && scrollView.contentOffset.y > -self.pullAmountToRefresh && scrollView.contentOffset.y < 0) {
@@ -74,7 +74,7 @@
   self.currentPullAmount = MAX(0, -scrollView.contentOffset.y);
 }
 
-- (void)containingScrollViewDidEndDragging:(UIScrollView *)scrollView {
+- (void)containingScrollViewDidEndDragging:(nonnull UIScrollView *)scrollView {
   // Trigger the action if it was pulled far enough.
   if (scrollView.contentOffset.y <= -self.pullAmountToRefresh &&  self.refreshState != YLRefreshHeaderViewStateRefreshing) {
     [self sendActionsForControlEvents:UIControlEventValueChanged];

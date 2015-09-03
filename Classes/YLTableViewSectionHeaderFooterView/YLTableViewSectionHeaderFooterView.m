@@ -18,10 +18,12 @@ static const CGFloat kLargeVerticalPadding = 12;
 static const CGFloat kDefaultHorizontalPadding = 15;
 static const CGFloat kFirstLastSectionExtraVerticalPadding = 17.5;
 
+NS_ASSUME_NONNULL_BEGIN
 @interface YLTableViewSectionHeaderFooterView ()
 @property (copy, nonatomic) NSArray *contentLayoutGuideConstraints;
 @property (strong, nonatomic) NSLayoutConstraint *contentLayoutGuideWidthConstraint;
 @end
+NS_ASSUME_NONNULL_END
 
 @implementation YLTableViewSectionHeaderFooterView
 

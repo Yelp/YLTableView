@@ -45,11 +45,11 @@
 
 #pragma mark Text property
 
-- (void)setText:(NSString *)text {
+- (void)setText:(nullable NSString *)text {
   self.label.text = text;
 }
 
-- (NSString *)text {
+- (nullable NSString *)text {
   return self.label.text;
 }
 

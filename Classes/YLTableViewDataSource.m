@@ -22,7 +22,7 @@
 
 #pragma mark Public Helpers
 
-- (void)reloadVisibleCellForModel:(NSObject *)model inTableView:(UITableView *)tableView {
+- (void)reloadVisibleCellForModel:(nonnull NSObject *)model inTableView:(nonnull UITableView *)tableView {
   for (NSIndexPath *indexPath in [tableView indexPathsForVisibleRows]) {
     if ([self tableView:tableView modelForCellAtIndexPath:indexPath] == model) {
       [(YLTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] setModel:model];
@@ -33,36 +33,36 @@
 
 #pragma mark Configuration
 
-- (void)tableView:(UITableView *)tableView configureCell:(YLTableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(nonnull UITableView *)tableView configureCell:(nonnull YLTableViewCell *)cell forIndexPath:(nonnull NSIndexPath *)indexPath {
   [cell setModel:[self tableView:tableView modelForCellAtIndexPath:indexPath]];
 }
 
-- (void)tableView:(UITableView *)tableView configureHeader:(YLTableViewSectionHeaderFooterView *)headerView forSection:(NSUInteger)section {
+- (void)tableView:(nonnull UITableView *)tableView configureHeader:(nonnull YLTableViewSectionHeaderFooterView *)headerView forSection:(NSUInteger)section {
   headerView.position = section == 0 ? YLTableViewSectionHeaderFooterPositionFirstHeader : YLTableViewSectionHeaderFooterPositionHeader;
 }
 
-- (void)tableView:(UITableView *)tableView configureFooter:(YLTableViewSectionHeaderFooterView *)footerView forSection:(NSUInteger)section {
+- (void)tableView:(nonnull UITableView *)tableView configureFooter:(nonnull YLTableViewSectionHeaderFooterView *)footerView forSection:(NSUInteger)section {
   footerView.position = (section == [tableView numberOfSections] - 1) ? YLTableViewSectionHeaderFooterPositionLastFooter : YLTableViewSectionHeaderFooterPositionFooter;
 }
 
 #pragma mark Reuse Identifiers
 
-- (NSString *)tableView:(UITableView *)tableView reuseIdentifierForCellAtIndexPath:(NSIndexPath *)indexPath {
+- (nonnull NSString *)tableView:(nonnull UITableView *)tableView reuseIdentifierForCellAtIndexPath:(nonnull NSIndexPath *)indexPath {
   NSAssert(NO, @"Must have a reuse identifier for all rows.");
   return nil;
 }
 
-- (NSString *)tableView:(UITableView *)tableView reuseIdentifierForHeaderInSection:(NSUInteger)section {
+- (nullable NSString *)tableView:(nonnull UITableView *)tableView reuseIdentifierForHeaderInSection:(NSUInteger)section {
   return nil;
 }
 
-- (NSString *)tableView:(UITableView *)tableView reuseIdentifierForFooterInSection:(NSUInteger)section {
+- (nullable NSString *)tableView:(nonnull UITableView *)tableView reuseIdentifierForFooterInSection:(NSUInteger)section {
   return nil;
 }
 
 #pragma mark Models
 
-- (NSObject *)tableView:(UITableView *)tableView modelForCellAtIndexPath:(NSIndexPath *)indexPath {
+- (nonnull NSObject *)tableView:(nonnull UITableView *)tableView modelForCellAtIndexPath:(nonnull NSIndexPath *)indexPath {
   NSAssert(NO, @"Must have a model for all rows.");
   return nil;
 }

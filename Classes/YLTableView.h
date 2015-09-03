@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, YLTableViewState) {
 @interface YLTableView : UITableView
 
 //! If you want to use a refresh header, set this to a subclass of YLRefreshHeaderView
-@property (strong, nonatomic) YLRefreshHeaderView *refreshHeaderView;
+@property (strong, nonatomic, nullable) YLRefreshHeaderView *refreshHeaderView;
 
 //! The current state of the table view. Will update the state of the refresh header as needed.
 @property (assign, nonatomic) YLTableViewState state;

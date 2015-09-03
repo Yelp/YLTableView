@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
 /*! YPUITableViewHeaderFooterView is wrapper view that is to be used as the table{Header/Footer}View of
  *  a UITableView. The one piece of functionality it offers is for UIViews with Auto Layout constraints
  *  to be used as table{Header/Footer}Views in such a way that if their content changes, the height
@@ -30,6 +31,7 @@
  *  @param tableView   The UITableView for which self is going to be a table{Header,Footer}View for i.e.
  *                     tableView.table{Header/Footer}View == self must be true.
  */
-- (instancetype)initWithView:(UIView *)view forTableView:(UITableView *)tableView;
+- (nullable instancetype)initWithView:(UIView *)view forTableView:(UITableView *)tableView NS_DESIGNATED_INITIALIZER;
 
 @end
+NS_ASSUME_NONNULL_END
