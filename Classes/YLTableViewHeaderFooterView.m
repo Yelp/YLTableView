@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_END
 @implementation YLTableViewHeaderFooterView
 
 - (nullable instancetype)initWithView:(nonnull UIView *)view forTableView:(nonnull UITableView *)tableView {
-  if (self = [self init]) {
+  if (self = [super initWithFrame:CGRectZero]) {
     _view = view;
     [self addSubview:view];
 
