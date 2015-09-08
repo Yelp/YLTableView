@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class YLTableViewCell;
-@class YLTableViewSectionHeaderFooterView;
 @class YLRefreshHeaderView;
 
 typedef NS_ENUM(NSInteger, YLTableViewState) {

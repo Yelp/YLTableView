@@ -8,6 +8,9 @@
 
 #import "YLTableView.h"
 
+@class YLTableViewCell;
+@class YLTableViewSectionHeaderFooterView;
+
 NS_ASSUME_NONNULL_BEGIN
 @interface YLTableView ()
 
