@@ -25,7 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface YLTableViewHeaderFooterView : UIView
 
-- (nullable instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
+- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 
 /*! @param view        A UIView instance that *must* be sized using Auto Layout constraints. It should
  *                     *not* have its width (unambiguously) defined. Its width will be decided by self.
