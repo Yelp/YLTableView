@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_END
 #pragma mark Sizing Views
 
 - (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier {
-  NSAssert(identifier != nil, @"Must have a reuse identifier.");
+  NSAssert(identifier, @"Must have a reuse identifier.");
   NSAssert([cellClass isSubclassOfClass:[YLTableViewCell class]], @"You can only use subclasses of YLTableViewCell.");
 
   [super registerClass:cellClass forCellReuseIdentifier:identifier];
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_END
 }
 
 - (void)registerClass:(Class)headerFooterViewClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier {
-  NSAssert(identifier != nil, @"Must have a reuse identifier.");
+  NSAssert(identifier, @"Must have a reuse identifier.");
   NSAssert([headerFooterViewClass isSubclassOfClass:[YLTableViewSectionHeaderFooterView class]], @"You can only use subclasses of YLTableViewSectionHeaderFooterView.");
 
   [super registerClass:headerFooterViewClass forHeaderFooterViewReuseIdentifier:identifier];
@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_END
 }
 
 - (YLTableViewCell *)sizingCellForReuseIdentifier:(NSString *)reuseIdentifier {
-  NSAssert(reuseIdentifier != nil, @"Must have a reuse identifier.");
+  NSAssert(reuseIdentifier, @"Must have a reuse identifier.");
   NSAssert(self.cellClassForReuseIdentifier[reuseIdentifier], @"You must register a class for this reuse identifier.");
 
   if (!self.sizingCellForReuseIdentifier[reuseIdentifier]) {
@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_END
 }
 
 - (YLTableViewSectionHeaderFooterView *)sizingHeaderFooterViewForReuseIdentifier:(NSString *)reuseIdentifier {
-  NSAssert(reuseIdentifier != nil, @"Must have a reuse identifier.");
+  NSAssert(reuseIdentifier, @"Must have a reuse identifier.");
   NSAssert(self.headerFooterViewClassForReuseIdentifier[reuseIdentifier], @"You must register a class for this reuse identifier.");
 
   if (!self.sizingHeaderFooterViewsForReuseIdentifier[reuseIdentifier]) {
