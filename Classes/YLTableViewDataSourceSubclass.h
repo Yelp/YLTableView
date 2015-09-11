@@ -11,6 +11,7 @@
 @class YLTableViewCell;
 @class YLTableViewSectionHeaderFooterView;
 
+NS_ASSUME_NONNULL_BEGIN
 @interface YLTableViewDataSource ()
 
 #pragma mark Abstract methods
@@ -29,14 +30,14 @@
  *
  * If nil is returned, tableView:heightForHeaderInSection: returns UITableViewAutomaticDimension which results in 17.5pt empty space on OS7.
  */
-- (NSString *)tableView:(UITableView *)tableView reuseIdentifierForHeaderInSection:(NSUInteger)section;
+- (nullable NSString *)tableView:(UITableView *)tableView reuseIdentifierForHeaderInSection:(NSUInteger)section;
 
 /*!
  * Return the reuse identifier for the given section footer. By default, returns nil, in which case, no footer is created.
  *
  * If nil is returned, tableView:heightForFooterInSection: returns UITableViewAutomaticDimension which results in 17.5pt empty space on OS7.
  */
-- (NSString *)tableView:(UITableView *)tableView reuseIdentifierForFooterInSection:(NSUInteger)section;
+- (nullable NSString *)tableView:(UITableView *)tableView reuseIdentifierForFooterInSection:(NSUInteger)section;
 
 /*!
  * Configure cell for display of the content in indexPath – gets the model for indexPath and then calls setModel on cell.
@@ -70,3 +71,4 @@
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath NS_REQUIRES_SUPER;
 
 @end
+NS_ASSUME_NONNULL_END

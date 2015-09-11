@@ -10,6 +10,7 @@
 #import "YLRefreshHeaderViewSubclass.h"
 
 //! Methods used by YLTableViewDataSource and YLTableView to make the refresh header work.
+NS_ASSUME_NONNULL_BEGIN
 @interface YLRefreshHeaderView ()
 
 //! The scroll view that this refresh header is at the top of.
@@ -22,3 +23,4 @@
 - (void)containingScrollViewDidEndDragging:(UIScrollView *)scrollView;
 
 @end
+NS_ASSUME_NONNULL_END

@@ -8,6 +8,7 @@
 
 #import "YLTableViewSectionHeaderFooterView.h"
 
+NS_ASSUME_NONNULL_BEGIN
 @interface YLTableViewSectionHeaderFooterView ()
 
 /*!
@@ -20,3 +21,4 @@
 @property (readonly, assign, nonatomic) UIEdgeInsets contentLayoutGuideInsets;
 
 @end
+NS_ASSUME_NONNULL_END

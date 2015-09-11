@@ -8,17 +8,19 @@
 
 #import "YLTableViewHeaderFooterView.h"
 
+NS_ASSUME_NONNULL_BEGIN
 @interface YLTableViewHeaderFooterView ()
 
 @property (strong, nonatomic) UIView *view;
-@property (weak, nonatomic) UITableView *tableView;
+@property (weak, nonatomic, nullable) UITableView *tableView;
 
 @end
+NS_ASSUME_NONNULL_END
 
 @implementation YLTableViewHeaderFooterView
 
 - (instancetype)initWithView:(UIView *)view forTableView:(UITableView *)tableView {
-  if (self = [self init]) {
+  if (self = [super initWithFrame:CGRectZero]) {
     _view = view;
     [self addSubview:view];
 
@@ -44,7 +46,7 @@
   // If we constrained the view to be the same width as us, it would first be sized as 0px wide, which would break a bunch of constraints. We'll put the priority of the width constraint at 999, so our other required constraints override it.
   NSLayoutConstraint *viewWidthConstraint = [[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_view(==self)]" options:0 metrics:nil views:views] firstObject];
   viewWidthConstraint.priority = UILayoutPriorityRequired - 1;
-  [self  addConstraint:viewWidthConstraint];
+  [self addConstraint:viewWidthConstraint];
 }
 
 - (void)layoutSubviews {

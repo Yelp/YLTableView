@@ -10,10 +10,14 @@
 
 typedef NS_ENUM(NSInteger, YLTableViewSectionHeaderFooterPosition) {
   YLTableViewSectionHeaderFooterPositionUndefined,
-  YLTableViewSectionHeaderFooterPositionHeader, // Any header but the first one in the table view
-  YLTableViewSectionHeaderFooterPositionFirstHeader, // The first header in the table view
-  YLTableViewSectionHeaderFooterPositionFooter, // Any footer but the last on one in the table view
-  YLTableViewSectionHeaderFooterPositionLastFooter, // The last footer in the table view
+  //! Any header but the first one in the table view
+  YLTableViewSectionHeaderFooterPositionHeader,
+  //! The first header in the table view
+  YLTableViewSectionHeaderFooterPositionFirstHeader,
+  //! Any footer but the last on one in the table view
+  YLTableViewSectionHeaderFooterPositionFooter,
+  //! The last footer in the table view
+  YLTableViewSectionHeaderFooterPositionLastFooter,
 };
 
 @interface YLTableViewSectionHeaderFooterView : UITableViewHeaderFooterView
