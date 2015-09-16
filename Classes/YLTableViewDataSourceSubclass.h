@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)tableView:(UITableView *)tableView reuseIdentifierForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 //! Abstract method – must be handled by subclass. The returned model will be passed to the cell for indexPath.
-- (NSObject *)tableView:(UITableView *)tableView modelForCellAtIndexPath:(NSIndexPath *)indexPath;
+- (id)tableView:(UITableView *)tableView modelForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 
 #pragma mark Optional Methods

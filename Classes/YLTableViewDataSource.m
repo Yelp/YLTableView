@@ -22,7 +22,7 @@
 
 #pragma mark Public Helpers
 
-- (void)reloadVisibleCellForModel:(NSObject *)model inTableView:(UITableView *)tableView {
+- (void)reloadVisibleCellForModel:(id)model inTableView:(UITableView *)tableView {
   for (NSIndexPath *indexPath in [tableView indexPathsForVisibleRows]) {
     if ([self tableView:tableView modelForCellAtIndexPath:indexPath] == model) {
       [(YLTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] setModel:model];
@@ -62,7 +62,7 @@
 
 #pragma mark Models
 
-- (NSObject *)tableView:(UITableView *)tableView modelForCellAtIndexPath:(NSIndexPath *)indexPath {
+- (id)tableView:(UITableView *)tableView modelForCellAtIndexPath:(NSIndexPath *)indexPath {
   NSAssert(NO, @"Must have a model for all rows.");
   return nil;
 }

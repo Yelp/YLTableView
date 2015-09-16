@@ -41,7 +41,7 @@
 
 #pragma mark YLTableViewCell subclass
 
-- (void)setModel:(NSObject *)model {
+- (void)setModel:(id)model {
   NSAssert([model isKindOfClass:[YLExampleImagesCellModel class]], @"Must use %@ with %@", NSStringFromClass([YLExampleImagesCellModel class]), NSStringFromClass([self class]));
   // Pass the images through to the controller
   YLExampleImagesCellModel *imagesModel = (YLExampleImagesCellModel *)model;
