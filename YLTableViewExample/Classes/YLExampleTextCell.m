@@ -51,7 +51,7 @@
 
 #pragma mark YLTableViewCell Subclass
 
-- (void)setModel:(NSObject *)model {
+- (void)setModel:(id)model {
   NSAssert([model isKindOfClass:[NSString class]], @"Must use %@ with %@", NSStringFromClass([NSString class]), NSStringFromClass([self class]));
   self.mainTextLabel.text = (NSString *)model;
 }

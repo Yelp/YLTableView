@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, YLExampleTableViewSection) {
 #pragma mark YLTableViewDataSource subclass
 
 - (NSString *)tableView:(UITableView *)tableView reuseIdentifierForCellAtIndexPath:(NSIndexPath *)indexPath {
-  NSObject *model = [self tableView:tableView modelForCellAtIndexPath:indexPath];
+  id model = [self tableView:tableView modelForCellAtIndexPath:indexPath];
   if ([model isKindOfClass:[NSString class]]) {
     return NSStringFromClass([YLExampleTextCell class]);
   } else if ([model isKindOfClass:[YLExampleImagesCellModel class]]) {
@@ -50,7 +50,7 @@ typedef NS_ENUM(NSInteger, YLExampleTableViewSection) {
   return nil;
 }
 
-- (NSObject *)tableView:(UITableView *)tableView modelForCellAtIndexPath:(NSIndexPath *)indexPath {
+- (id)tableView:(UITableView *)tableView modelForCellAtIndexPath:(NSIndexPath *)indexPath {
   // The model returned here must work with the cell specified above.
   return self.sectionModels[indexPath.section][indexPath.row];
 }
@@ -86,7 +86,7 @@ typedef NS_ENUM(NSInteger, YLExampleTableViewSection) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
-  NSObject *model = [self tableView:tableView modelForCellAtIndexPath:indexPath];
+  id model = [self tableView:tableView modelForCellAtIndexPath:indexPath];
   if ([model isKindOfClass:[YLExampleImagesCellModel class]]) {
     id<YLExampleTableViewDataSourceDelegate> delegate = self.delegate;
     [delegate exampleTableViewDataSource:self didSelectImagesModel:(YLExampleImagesCellModel *)model];

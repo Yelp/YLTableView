@@ -24,7 +24,7 @@ const CGFloat kUITableViewCellDefaultHeight = 44.0;
 
 #pragma mark Applying a cell's model
 
-- (void)setModel:(NSObject *)model { }
+- (void)setModel:(id)model { }
 
 #pragma mark Determining height of cells that use Auto Layout
 

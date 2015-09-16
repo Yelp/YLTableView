@@ -1,5 +1,5 @@
 PODS:
-  - YLTableView (1.0.1)
+  - YLTableView (1.0.3)
 
 DEPENDENCIES:
   - YLTableView (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  YLTableView: d64bcd2160886b6ebd9e24dd138d9807496d6b15
+  YLTableView: 0b10cf1d3af0c871a6836f525768b5153750e68a
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.0

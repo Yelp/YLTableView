@@ -13,7 +13,7 @@ extern const CGFloat kUITableViewCellDefaultHeight;
 @interface YLTableViewCell : UITableViewCell
 
 //! Apply a cell model to a cell.  Subclasses should implement this to decide how they display a model's content.
-- (void)setModel:(nullable NSObject *)model;
+- (void)setModel:(nullable id)model;
 
 /*! Set by YLTableView to indicate that this cell will be used solely for sizing and will never be displayed on screen.
  *
