@@ -21,13 +21,7 @@
 
 @interface YLTableViewDataSource ()
 
-/*!
- This is used to cache the estimated row heights.
- Note: this is only really necessary for iOS 8. If you are using estimated row height + UITableViewAutomaticDimension in iOS 8, there's a bug
- when reloadData is called. If the estimated height is different from the real height for the cells, the table view will jump when you scroll
- after calling reloadData. To fix this, we can record the actual height as it comes on screen (willDisplayCell), and return this for the
- estimated row height. This bug is fixed in iOS 9.
- */
+//! This is used to cache the estimated row heights.
 @property (strong, nonatomic) NSMutableDictionary<NSString *, NSNumber *> * indexPathToEstimatedRowHeight;
 
 @end
