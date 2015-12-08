@@ -30,12 +30,12 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  Defaults to NO. If you would like to cache the estimated heights for rows, set this to YES.
 
- Note: this is only really necessary for iOS 8. If you are using estimated row height + UITableViewAutomaticDimension in iOS 8, there's a bug
+ @note This is only really necessary for iOS 8. If you are using estimated row height + UITableViewAutomaticDimension in iOS 8, there's a bug
  when reloadData is called: if the estimated height is different from the real height for the cells, the table view will jump when you scroll
  after calling reloadData. To fix this, we can record the actual height as it comes on screen (willDisplayCell), and return this for the
  estimated row height. This bug is fixed in iOS 9.
  */
-@property (assign, nonatomic) BOOL shouldCacheEstimatedHeights;
+@property (assign, nonatomic) BOOL shouldCacheEstimatedRowHeights;
 
 @end
 NS_ASSUME_NONNULL_END

@@ -194,7 +194,7 @@
    */
   NSAssert([tableView isKindOfClass:[YLTableView class]], @"This can only be the delegate of a YLTableView.");
 
-  if (self.shouldCacheEstimatedHeights && self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]]) {
+  if (self.shouldCacheEstimatedRowHeights && self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]]) {
       return [self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]] floatValue];
   }
 
@@ -215,7 +215,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
 
-  if (self.shouldCacheEstimatedHeights) {
+  if (self.shouldCacheEstimatedRowHeights) {
     self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]] = @(cell.frame.size.height);
   }
 
