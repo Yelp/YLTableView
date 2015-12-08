@@ -21,19 +21,28 @@
 
 @interface YLTableViewDataSource ()
 
-//! This is used to cache the estimated row heights
-@property (strong, nonatomic) NSMutableDictionary * /*of NSString*/ indexPathToEstimatedRowHeight;
+/*!
+ This is used to cache the estimated row heights.
+ Note: this is only really necessary for iOS 8. If you are using estimated row height + UITableViewAutomaticDimension in iOS 8, there's a bug
+ when reloadData is called. If the estimated height is different from the real height for the cells, the table view will jump when you scroll
+ after calling reloadData. To fix this, we can record the actual height as it comes on screen (willDisplayCell), and return this for the
+ estimated row height. This bug is fixed in iOS 9.
+ */
+@property (strong, nonatomic) NSMutableDictionary<NSString *, NSNumber *> * indexPathToEstimatedRowHeight;
 
 @end
 
 @implementation YLTableViewDataSource
 
 
--(instancetype)init {
-  if (self = [super init]) {
+#pragma mark indexPathToEstimatedRowHeight property methods
+
+-(NSMutableDictionary<NSString *,NSNumber *> *)indexPathToEstimatedRowHeight {
+  if (!_indexPathToEstimatedRowHeight) {
     _indexPathToEstimatedRowHeight = [[NSMutableDictionary alloc] init];
   }
-  return self;
+
+  return _indexPathToEstimatedRowHeight;
 }
 
 #pragma mark Public Helpers
@@ -47,7 +56,7 @@
   }
 }
 
--(CGFloat)estimatedHeightForRow {
+-(CGFloat)estimatedHeightForRow:(NSIndexPath *)row inTableView:(UITableView *)tableView {
   /*!
    If subclasses want to provide an estimated row height to be used by tableView:estimatedHeightForRowAtIndexPath,
    they can override this method.
@@ -187,14 +196,12 @@
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
   /*!
    For subclasses that don't have cells conforming to YLTableViewCellEstimatedRowHeight, they can provide an alternate
-   estimated height via estimatedRowHeight. Otherwise, the iOS default (UITableViewAutomaticDimension) will be used.
+   estimated height via estimatedHeightForRow:inTableView. Otherwise, the iOS default (UITableViewAutomaticDimension) will be used.
    */
   NSAssert([tableView isKindOfClass:[YLTableView class]], @"This can only be the delegate of a YLTableView.");
 
-  if (self.shouldCacheEstimatedHeights) {
-    if (self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]]) {
+  if (self.shouldCacheEstimatedHeights && self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]]) {
       return [self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]] floatValue];
-    }
   }
 
   Class cellClass = NSClassFromString([self tableView:tableView reuseIdentifierForCellAtIndexPath:indexPath]);
@@ -202,7 +209,7 @@
     return [(id<YLTableViewCellEstimatedRowHeight>)cellClass estimatedRowHeight];
   }
 
-  CGFloat estimatedHeightForRow = [self estimatedHeightForRow];
+  CGFloat estimatedHeightForRow = [self estimatedHeightForRow:indexPath inTableView:tableView];
   if (estimatedHeightForRow != -1) {
     return estimatedHeightForRow;
   }
