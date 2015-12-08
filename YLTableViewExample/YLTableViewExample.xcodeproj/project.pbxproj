@@ -165,6 +165,7 @@
 				BBB3E3CB1B22555700051EF1 /* Frameworks */,
 				BBB3E3CC1B22555700051EF1 /* Resources */,
 				F68E5F34F591B1A345D106F5 /* Copy Pods Resources */,
+				035B4198B4BEA8353143EAF3 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,6 +221,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		035B4198B4BEA8353143EAF3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YLTableViewExample/Pods-YLTableViewExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7FFF256EC250EBB7496352A1 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
