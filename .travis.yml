@@ -1,3 +1,3 @@
 language: objective-c
 xcode_workspace: YLTableView.xcworkspace
-xcode_scheme: YLTableViewWorkspace
+xcode_scheme: YLTableView
