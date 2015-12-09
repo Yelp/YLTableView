@@ -14,11 +14,30 @@
 #import "YLTableViewPrivate.h"
 #import "YLTableViewCell.h"
 #import "YLTableViewCellPrivate.h"
+#import "YLTableViewCellEstimatedRowHeight.h"
 #import "YLTableViewChildViewControllerCell.h"
 #import "YLTableViewSectionHeaderFooterView.h"
 #import "YLTableViewSectionHeaderFooterViewPrivate.h"
 
+@interface YLTableViewDataSource ()
+
+//! This is used to cache the estimated row heights.
+@property (strong, nonatomic) NSMutableDictionary<NSString *, NSNumber *> * indexPathToEstimatedRowHeight;
+
+@end
+
 @implementation YLTableViewDataSource
+
+
+#pragma mark indexPathToEstimatedRowHeight property methods
+
+-(NSMutableDictionary<NSString *,NSNumber *> *)indexPathToEstimatedRowHeight {
+  if (!_indexPathToEstimatedRowHeight) {
+    _indexPathToEstimatedRowHeight = [[NSMutableDictionary alloc] init];
+  }
+
+  return _indexPathToEstimatedRowHeight;
+}
 
 #pragma mark Public Helpers
 
@@ -29,6 +48,22 @@
       return;
     }
   }
+}
+
+-(CGFloat)estimatedHeightForRow:(NSIndexPath *)row inTableView:(UITableView *)tableView {
+  /*!
+   If subclasses want to provide an estimated row height to be used by tableView:estimatedHeightForRowAtIndexPath,
+   they can override this method.
+   For more information, see tableView:estimatedHeightForRowAtIndexPath.
+   */
+  return -1;
+}
+
+#pragma mark Private Helpers
+
+//! Constructs a cache key for the given index path. UITableView sometimes returns a different subclass, NSMutableIndexPath, so we can't use the index path as the key by itself.
++ (NSString *)_keyForIndexPath:(NSIndexPath *)indexPath {
+  return [NSString stringWithFormat:@"%ld,%ld", (long)indexPath.section, (long)indexPath.row];
 }
 
 #pragma mark Configuration
@@ -152,9 +187,38 @@
   }
 }
 
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  /*!
+   For subclasses that don't have cells conforming to YLTableViewCellEstimatedRowHeight, they can provide an alternate
+   estimated height via estimatedHeightForRow:inTableView. Otherwise, the iOS default (UITableViewAutomaticDimension) will be used.
+   */
+  NSAssert([tableView isKindOfClass:[YLTableView class]], @"This can only be the delegate of a YLTableView.");
+
+  if (self.shouldCacheEstimatedRowHeights && self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]]) {
+      return [self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]] floatValue];
+  }
+
+  Class cellClass = NSClassFromString([self tableView:tableView reuseIdentifierForCellAtIndexPath:indexPath]);
+  if ([cellClass conformsToProtocol:@protocol(YLTableViewCellEstimatedRowHeight)]) {
+    return [(id<YLTableViewCellEstimatedRowHeight>)cellClass estimatedRowHeight];
+  }
+
+  CGFloat estimatedHeightForRow = [self estimatedHeightForRow:indexPath inTableView:tableView];
+  if (estimatedHeightForRow != -1) {
+    return estimatedHeightForRow;
+  }
+
+  return UITableViewAutomaticDimension;
+}
+
 #pragma mark ChildViewController support
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+  if (self.shouldCacheEstimatedRowHeights) {
+    self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]] = @(cell.frame.size.height);
+  }
+
   UIViewController *parentViewController = self.parentViewController;
   if ([cell conformsToProtocol:@protocol(YLTableViewChildViewControllerCell)]) {
     NSAssert(parentViewController != nil, @"Must have a parent view controller to support cell %@", cell);
