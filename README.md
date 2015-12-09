@@ -105,7 +105,7 @@ Check out [YLExampleImagesCell.m](YLTableViewExample/Classes/ImagesView/YLExampl
 
 # Pull to Refresh
 
-YLTableView doesn't include a pull-to-refresh header, but makes it really easy to build your own. Simple subclass `YLRefreshHeaderView` and implement `setRefreshState:animated:`. Then you can set the `refreshHeader` property on `YLTableView` and add a listener for the `UIControlEventValueChanged` event on your refresh header.
+YLTableView doesn't include a pull-to-refresh header, but makes it really easy to build your own. Simply subclass `YLRefreshHeaderView` and implement `setRefreshState:animated:`. Then you can set the `refreshHeader` property on `YLTableView` and add a listener for the `UIControlEventValueChanged` event on your refresh header.
 
 Check out [YLExampleRefreshHeader.m](YLTableViewExample/Classes/YLExampleRefreshHeader.m) for an example.
 
