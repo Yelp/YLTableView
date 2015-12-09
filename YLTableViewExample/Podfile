@@ -1,7 +1,7 @@
 platform :ios, '7.0'
 
 xcodeproj 'YLTableViewExample.xcodeproj'
-workspace '../YLTableView.xcworkspace'
+workspace 'YLTableViewExample.xcworkspace'
 
 source 'https://github.com/CocoaPods/Specs.git'
 

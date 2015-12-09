@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A8CB51871C18B40E00F8528A /* YLRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51711C18B40E00F8528A /* YLRefreshHeaderView.m */; };
+		A8CB51881C18B40E00F8528A /* YLTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51751C18B40E00F8528A /* YLTableView.m */; };
+		A8CB51891C18B40E00F8528A /* YLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51771C18B40E00F8528A /* YLTableViewCell.m */; };
+		A8CB518A1C18B40E00F8528A /* YLTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB517B1C18B40E00F8528A /* YLTableViewDataSource.m */; };
+		A8CB518B1C18B40E00F8528A /* YLTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB517E1C18B40E00F8528A /* YLTableViewHeaderFooterView.m */; };
+		A8CB518C1C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51821C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.m */; };
+		A8CB518D1C18B40E00F8528A /* YLTableViewSectionHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51841C18B40E00F8528A /* YLTableViewSectionHeaderFooterView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A8CB51601C18B38700F8528A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A8CB51621C18B38700F8528A /* libYLTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYLTableView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8CB51701C18B40E00F8528A /* YLRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRefreshHeaderView.h; sourceTree = "<group>"; };
+		A8CB51711C18B40E00F8528A /* YLRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLRefreshHeaderView.m; sourceTree = "<group>"; };
+		A8CB51721C18B40E00F8528A /* YLRefreshHeaderViewPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRefreshHeaderViewPrivate.h; sourceTree = "<group>"; };
+		A8CB51731C18B40E00F8528A /* YLRefreshHeaderViewSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRefreshHeaderViewSubclass.h; sourceTree = "<group>"; };
+		A8CB51741C18B40E00F8528A /* YLTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableView.h; sourceTree = "<group>"; };
+		A8CB51751C18B40E00F8528A /* YLTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableView.m; sourceTree = "<group>"; };
+		A8CB51761C18B40E00F8528A /* YLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewCell.h; sourceTree = "<group>"; };
+		A8CB51771C18B40E00F8528A /* YLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableViewCell.m; sourceTree = "<group>"; };
+		A8CB51781C18B40E00F8528A /* YLTableViewCellPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewCellPrivate.h; sourceTree = "<group>"; };
+		A8CB51791C18B40E00F8528A /* YLTableViewChildViewControllerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewChildViewControllerCell.h; sourceTree = "<group>"; };
+		A8CB517A1C18B40E00F8528A /* YLTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewDataSource.h; sourceTree = "<group>"; };
+		A8CB517B1C18B40E00F8528A /* YLTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableViewDataSource.m; sourceTree = "<group>"; };
+		A8CB517C1C18B40E00F8528A /* YLTableViewDataSourceSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewDataSourceSubclass.h; sourceTree = "<group>"; };
+		A8CB517D1C18B40E00F8528A /* YLTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewHeaderFooterView.h; sourceTree = "<group>"; };
+		A8CB517E1C18B40E00F8528A /* YLTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		A8CB517F1C18B40E00F8528A /* YLTableViewPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewPrivate.h; sourceTree = "<group>"; };
+		A8CB51811C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewSectionHeaderFooterLabelView.h; sourceTree = "<group>"; };
+		A8CB51821C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableViewSectionHeaderFooterLabelView.m; sourceTree = "<group>"; };
+		A8CB51831C18B40E00F8528A /* YLTableViewSectionHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewSectionHeaderFooterView.h; sourceTree = "<group>"; };
+		A8CB51841C18B40E00F8528A /* YLTableViewSectionHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableViewSectionHeaderFooterView.m; sourceTree = "<group>"; };
+		A8CB51851C18B40E00F8528A /* YLTableViewSectionHeaderFooterViewPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewSectionHeaderFooterViewPrivate.h; sourceTree = "<group>"; };
+		A8CB51861C18B40E00F8528A /* YLTableViewSectionHeaderFooterViewSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewSectionHeaderFooterViewSubclass.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A8CB515F1C18B38700F8528A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A8CB51591C18B38700F8528A = {
+			isa = PBXGroup;
+			children = (
+				A8CB516E1C18B40E00F8528A /* Classes */,
+				A8CB51631C18B38700F8528A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A8CB51631C18B38700F8528A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB51621C18B38700F8528A /* libYLTableView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A8CB516E1C18B40E00F8528A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB516F1C18B40E00F8528A /* YLRefreshHeaderView */,
+				A8CB51741C18B40E00F8528A /* YLTableView.h */,
+				A8CB51751C18B40E00F8528A /* YLTableView.m */,
+				A8CB51761C18B40E00F8528A /* YLTableViewCell.h */,
+				A8CB51771C18B40E00F8528A /* YLTableViewCell.m */,
+				A8CB51781C18B40E00F8528A /* YLTableViewCellPrivate.h */,
+				A8CB51791C18B40E00F8528A /* YLTableViewChildViewControllerCell.h */,
+				A8CB517A1C18B40E00F8528A /* YLTableViewDataSource.h */,
+				A8CB517B1C18B40E00F8528A /* YLTableViewDataSource.m */,
+				A8CB517C1C18B40E00F8528A /* YLTableViewDataSourceSubclass.h */,
+				A8CB517D1C18B40E00F8528A /* YLTableViewHeaderFooterView.h */,
+				A8CB517E1C18B40E00F8528A /* YLTableViewHeaderFooterView.m */,
+				A8CB517F1C18B40E00F8528A /* YLTableViewPrivate.h */,
+				A8CB51801C18B40E00F8528A /* YLTableViewSectionHeaderFooterView */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A8CB516F1C18B40E00F8528A /* YLRefreshHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB51701C18B40E00F8528A /* YLRefreshHeaderView.h */,
+				A8CB51711C18B40E00F8528A /* YLRefreshHeaderView.m */,
+				A8CB51721C18B40E00F8528A /* YLRefreshHeaderViewPrivate.h */,
+				A8CB51731C18B40E00F8528A /* YLRefreshHeaderViewSubclass.h */,
+			);
+			path = YLRefreshHeaderView;
+			sourceTree = "<group>";
+		};
+		A8CB51801C18B40E00F8528A /* YLTableViewSectionHeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB51811C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.h */,
+				A8CB51821C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.m */,
+				A8CB51831C18B40E00F8528A /* YLTableViewSectionHeaderFooterView.h */,
+				A8CB51841C18B40E00F8528A /* YLTableViewSectionHeaderFooterView.m */,
+				A8CB51851C18B40E00F8528A /* YLTableViewSectionHeaderFooterViewPrivate.h */,
+				A8CB51861C18B40E00F8528A /* YLTableViewSectionHeaderFooterViewSubclass.h */,
+			);
+			path = YLTableViewSectionHeaderFooterView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A8CB51611C18B38700F8528A /* YLTableView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8CB516B1C18B38700F8528A /* Build configuration list for PBXNativeTarget "YLTableView" */;
+			buildPhases = (
+				A8CB515E1C18B38700F8528A /* Sources */,
+				A8CB515F1C18B38700F8528A /* Frameworks */,
+				A8CB51601C18B38700F8528A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YLTableView;
+			productName = YLTableView;
+			productReference = A8CB51621C18B38700F8528A /* libYLTableView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A8CB515A1C18B38700F8528A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Yelp;
+				TargetAttributes = {
+					A8CB51611C18B38700F8528A = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = A8CB515D1C18B38700F8528A /* Build configuration list for PBXProject "YLTableView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A8CB51591C18B38700F8528A;
+			productRefGroup = A8CB51631C18B38700F8528A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A8CB51611C18B38700F8528A /* YLTableView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A8CB515E1C18B38700F8528A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8CB51881C18B40E00F8528A /* YLTableView.m in Sources */,
+				A8CB518A1C18B40E00F8528A /* YLTableViewDataSource.m in Sources */,
+				A8CB518B1C18B40E00F8528A /* YLTableViewHeaderFooterView.m in Sources */,
+				A8CB51891C18B40E00F8528A /* YLTableViewCell.m in Sources */,
+				A8CB518C1C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.m in Sources */,
+				A8CB51871C18B40E00F8528A /* YLRefreshHeaderView.m in Sources */,
+				A8CB518D1C18B40E00F8528A /* YLTableViewSectionHeaderFooterView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A8CB51691C18B38700F8528A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A8CB516A1C18B38700F8528A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A8CB516C1C18B38700F8528A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A8CB516D1C18B38700F8528A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A8CB515D1C18B38700F8528A /* Build configuration list for PBXProject "YLTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8CB51691C18B38700F8528A /* Debug */,
+				A8CB516A1C18B38700F8528A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8CB516B1C18B38700F8528A /* Build configuration list for PBXNativeTarget "YLTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8CB516C1C18B38700F8528A /* Debug */,
+				A8CB516D1C18B38700F8528A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A8CB515A1C18B38700F8528A /* Project object */;
+}
