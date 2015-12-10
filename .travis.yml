@@ -1,0 +1,8 @@
+language: objective-c
+osx_image: xcode7.1
+xcode_project: YLTableView.xcodproj
+xcode_scheme: YLTableView
+xcode_sdk:
+  - iphonesimulator7.1
+  - iphonesimulator8.4
+  - iphonesimulator9.1
