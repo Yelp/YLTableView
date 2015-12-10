@@ -14,7 +14,19 @@
 		A8CB518B1C18B40E00F8528A /* YLTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB517E1C18B40E00F8528A /* YLTableViewHeaderFooterView.m */; };
 		A8CB518C1C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51821C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.m */; };
 		A8CB518D1C18B40E00F8528A /* YLTableViewSectionHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51841C18B40E00F8528A /* YLTableViewSectionHeaderFooterView.m */; };
+		A8CB51B51C19EDE200F8528A /* libYLTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CB51621C18B38700F8528A /* libYLTableView.a */; };
+		A8CB51BD1C19EEE700F8528A /* YLTableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51BC1C19EEE700F8528A /* YLTableViewTests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A8CB51B61C19EDE200F8528A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8CB515A1C18B38700F8528A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A8CB51611C18B38700F8528A;
+			remoteInfo = YLTableView;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		A8CB51601C18B38700F8528A /* CopyFiles */ = {
@@ -52,6 +64,9 @@
 		A8CB51841C18B40E00F8528A /* YLTableViewSectionHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableViewSectionHeaderFooterView.m; sourceTree = "<group>"; };
 		A8CB51851C18B40E00F8528A /* YLTableViewSectionHeaderFooterViewPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewSectionHeaderFooterViewPrivate.h; sourceTree = "<group>"; };
 		A8CB51861C18B40E00F8528A /* YLTableViewSectionHeaderFooterViewSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewSectionHeaderFooterViewSubclass.h; sourceTree = "<group>"; };
+		A8CB51B01C19EDE200F8528A /* YLTableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YLTableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8CB51B41C19EDE200F8528A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8CB51BC1C19EEE700F8528A /* YLTableViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableViewTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +77,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A8CB51AD1C19EDE200F8528A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8CB51B51C19EDE200F8528A /* libYLTableView.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				A8CB516E1C18B40E00F8528A /* Classes */,
+				A8CB51B11C19EDE200F8528A /* YLTableViewTests */,
 				A8CB51631C18B38700F8528A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				A8CB51621C18B38700F8528A /* libYLTableView.a */,
+				A8CB51B01C19EDE200F8528A /* YLTableViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +151,15 @@
 			path = YLTableViewSectionHeaderFooterView;
 			sourceTree = "<group>";
 		};
+		A8CB51B11C19EDE200F8528A /* YLTableViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB51BC1C19EEE700F8528A /* YLTableViewTests.m */,
+				A8CB51B41C19EDE200F8528A /* Info.plist */,
+			);
+			path = YLTableViewTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +180,24 @@
 			productReference = A8CB51621C18B38700F8528A /* libYLTableView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		A8CB51AF1C19EDE200F8528A /* YLTableViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8CB51BA1C19EDE200F8528A /* Build configuration list for PBXNativeTarget "YLTableViewTests" */;
+			buildPhases = (
+				A8CB51AC1C19EDE200F8528A /* Sources */,
+				A8CB51AD1C19EDE200F8528A /* Frameworks */,
+				A8CB51AE1C19EDE200F8528A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A8CB51B71C19EDE200F8528A /* PBXTargetDependency */,
+			);
+			name = YLTableViewTests;
+			productName = YLTableViewTests;
+			productReference = A8CB51B01C19EDE200F8528A /* YLTableViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -156,6 +208,9 @@
 				ORGANIZATIONNAME = Yelp;
 				TargetAttributes = {
 					A8CB51611C18B38700F8528A = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					A8CB51AF1C19EDE200F8528A = {
 						CreatedOnToolsVersion = 7.2;
 					};
 				};
@@ -173,9 +228,20 @@
 			projectRoot = "";
 			targets = (
 				A8CB51611C18B38700F8528A /* YLTableView */,
+				A8CB51AF1C19EDE200F8528A /* YLTableViewTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A8CB51AE1C19EDE200F8528A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A8CB515E1C18B38700F8528A /* Sources */ = {
@@ -192,7 +258,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A8CB51AC1C19EDE200F8528A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8CB51BD1C19EEE700F8528A /* YLTableViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A8CB51B71C19EDE200F8528A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A8CB51611C18B38700F8528A /* YLTableView */;
+			targetProxy = A8CB51B61C19EDE200F8528A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A8CB51691C18B38700F8528A /* Debug */ = {
@@ -295,6 +377,28 @@
 			};
 			name = Release;
 		};
+		A8CB51B81C19EDE200F8528A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = YLTableViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yelp.YLTableViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A8CB51B91C19EDE200F8528A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = YLTableViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yelp.YLTableViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -315,6 +419,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A8CB51BA1C19EDE200F8528A /* Build configuration list for PBXNativeTarget "YLTableViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8CB51B81C19EDE200F8528A /* Debug */,
+				A8CB51B91C19EDE200F8528A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0710"
+   LastUpgradeVersion = "0720"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,7 +16,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A6BADB8A1C18DAA600501E0C"
+               BlueprintIdentifier = "A8CB51AF1C19EDE200F8528A"
                BuildableName = "YLTableViewTests.xctest"
                BlueprintName = "YLTableViewTests"
                ReferencedContainer = "container:YLTableView.xcodeproj">

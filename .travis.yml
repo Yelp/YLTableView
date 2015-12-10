@@ -1,11 +1,5 @@
 language: objective-c
 osx_image: xcode7.1
-xcode_sdk: iphonesimulator  # specify to avoid signing issues
-env:
-    global:
-        - PROJECT=YLTableView.xcodeproj
-        - BUILD_SCHEME=YLTableView
-        - TEST_SCHEME=YLTableViewTests
-script:
-    - xctool -project $PROJECT -scheme $BUILD_SCHEME build
-    - xctool -project $PROJECT -scheme $TEST_SCHEME test
+xcode_project: YLTableView.xcodeproj
+xcode_scheme: YLTableView
+xcode_sdk: iphonesimulator9.1
