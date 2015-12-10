@@ -1,4 +1,5 @@
 language: objective-c
+osx_image: xcode7.1
 xcode_sdk: iphonesimulator  # specify to avoid signing issues
 env:
     global:
