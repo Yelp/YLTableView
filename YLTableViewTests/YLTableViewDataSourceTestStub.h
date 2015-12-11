@@ -1,0 +1,24 @@
+//
+//  YLTableViewDataSourceTestStub.h
+//  YLTableView
+//
+//  Created by Ushhud Khalid on 12/9/15.
+//  Copyright © 2015 Yelp. All rights reserved.
+//
+
+#import "YLTableViewCell.h"
+#import "YLTableViewDataSource.h"
+
+//! YLTableViewDataSource stub used for testing purposes
+@interface YLTableViewDataSourceTestStub : YLTableViewDataSource
+
+//! This is used to populate the table with cells at their respective index paths
+@property (copy, nonatomic) NSDictionary<NSIndexPath *, YLTableViewCell*> *tableViewCells;
+
+//! Set to true to override the default height (-1) of estimatedHeightForRow:inTableView: to return kYLTableViewDataSourceTestStubOverridenHeight
+@property (assign, nonatomic) BOOL shouldProvideOverriddenHeight;
+
+//! If shouldProvideOverriddenHeight, this is the height returned by estimatedHeightForRow:inTableView:
+extern const CGFloat kYLTableViewDataSourceTestStubOverridenHeight;
+
+@end
