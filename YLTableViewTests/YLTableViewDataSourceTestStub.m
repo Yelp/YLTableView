@@ -16,7 +16,7 @@ const CGFloat kYLTableViewDataSourceTestStubOverridenHeight = 200.0;
   return NSStringFromClass([self.tableViewCells[indexPath] class]);
 }
 
--(CGFloat)estimatedHeightForRow:(NSIndexPath *)row inTableView:(UITableView *)tableView {
+- (CGFloat)estimatedHeightForRow:(NSIndexPath *)row inTableView:(UITableView *)tableView {
   return self.shouldProvideOverriddenHeight ? kYLTableViewDataSourceTestStubOverridenHeight : -1;
 }
 

@@ -31,7 +31,7 @@
 
 #pragma mark indexPathToEstimatedRowHeight property methods
 
--(NSMutableDictionary<NSString *,NSNumber *> *)indexPathToEstimatedRowHeight {
+- (NSMutableDictionary<NSString *,NSNumber *> *)indexPathToEstimatedRowHeight {
   if (!_indexPathToEstimatedRowHeight) {
     _indexPathToEstimatedRowHeight = [[NSMutableDictionary alloc] init];
   }
@@ -50,7 +50,7 @@
   }
 }
 
--(CGFloat)estimatedHeightForRow:(NSIndexPath *)row inTableView:(UITableView *)tableView {
+- (CGFloat)estimatedHeightForRow:(NSIndexPath *)row inTableView:(UITableView *)tableView {
   /*!
    If subclasses want to provide an estimated row height to be used by tableView:estimatedHeightForRowAtIndexPath,
    they can override this method.
@@ -187,7 +187,7 @@
   }
 }
 
--(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
   /*!
    For subclasses that don't have cells conforming to YLTableViewCellEstimatedRowHeight, they can provide an alternate
    estimated height via estimatedHeightForRow:inTableView. Otherwise, the iOS default (UITableViewAutomaticDimension) will be used.

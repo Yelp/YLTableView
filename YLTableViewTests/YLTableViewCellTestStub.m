@@ -12,7 +12,7 @@ const CGFloat kYLTableViewCellStubHeight = 100.0;
 
 @implementation YLTableViewCellTestStub
 
-+(CGFloat)estimatedRowHeight {
++ (CGFloat)estimatedRowHeight {
   return kYLTableViewCellStubHeight;
 }
 
