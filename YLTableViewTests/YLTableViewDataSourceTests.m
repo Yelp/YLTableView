@@ -24,9 +24,9 @@
 
 @implementation YLTableViewDataSourceTests
 
-static int kSectionIndexTableView = 0;
-static int kRowIndexTableViewConformingCell = 0;
-static int kRowIndexTableViewNonConformingCell = 1;
+static const int kSectionIndexTableView = 0;
+static const int kRowIndexTableViewConformingCell = 0;
+static const int kRowIndexTableViewNonConformingCell = 1;
 
 #pragma mark - Setup/Teardown
 
