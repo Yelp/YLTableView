@@ -7,14 +7,15 @@
 //
 
 #import "YLTableView.h"
-#import "YLTableViewBaseTestCase.h"
 #import "YLTableViewCell.h"
 #import "YLTableViewCellEstimatedRowHeight.h"
 #import "YLTableViewCellTestStub.h"
 #import "YLTableViewDataSource.h"
 #import "YLTableViewDataSourceTestStub.h"
 
-@interface YLTableViewDataSourceTests : YLTableViewBaseTestCase
+#import <XCTest/XCTestCase.h>
+
+@interface YLTableViewDataSourceTests : XCTestCase
 
 @property (strong, nonatomic) YLTableView *tableView;
 @property (strong, nonatomic) YLTableViewDataSourceTestStub *dataSource;
@@ -43,15 +44,10 @@ static int kRowIndexTableViewNonConformingCell = 1;
 #pragma mark - Helpers
 
 - (NSDictionary<NSIndexPath *, YLTableViewCell * > *)_cellsForTableView {
-  NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
-  
-  YLTableViewCell * conformingCell = [[YLTableViewCellTestStub alloc] init];
-  YLTableViewCell * nonConformingCell = [[YLTableViewCell alloc] init];
-
-  [dict setObject:conformingCell forKey:[self _indexPathForConformingCell]];
-  [dict setObject:nonConformingCell forKey:[self _indexPathForNonConformingCell]];
-  
-  return (NSDictionary *)dict;
+  return @{
+    [self _indexPathForConformingCell]: [[YLTableViewCellTestStub alloc] init],
+    [self _indexPathForNonConformingCell]: [[YLTableViewCell alloc] init],
+  };
 }
 
 - (NSIndexPath *)_indexPathForConformingCell {
