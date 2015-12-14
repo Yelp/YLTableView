@@ -10,6 +10,20 @@
 
 @implementation YLTableViewBaseTestCase
 
+#pragma mark - Class methods
+
++ (void)setUp {
+  [super setUp];
+
+}
+
++ (void)tearDown {
+
+  [super tearDown];
+}
+
+#pragma mark - Instance methods
+
 - (void)setUp {
   [super setUp];
 

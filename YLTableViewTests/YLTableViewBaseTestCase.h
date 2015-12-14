@@ -12,6 +12,8 @@
 @interface YLTableViewBaseTestCase : XCTestCase
 
 //! Redeclaring to add the compiler warning if super is missing
++ (void)setUp NS_REQUIRES_SUPER;
++ (void)tearDown NS_REQUIRES_SUPER;
 - (void)setUp NS_REQUIRES_SUPER;
 - (void)tearDown NS_REQUIRES_SUPER;
 

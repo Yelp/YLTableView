@@ -19,20 +19,18 @@
 @property (strong, nonatomic) YLTableView *tableView;
 @property (strong, nonatomic) YLTableViewDataSourceTestStub *dataSource;
 
-@property (strong, nonatomic) NSIndexPath *indexPathOfConformingCell;
-@property (strong, nonatomic) NSIndexPath *indexPathOfNonConformingCell;
-
 @end
 
 @implementation YLTableViewDataSourceTests
+
+static int kSectionIndexTableView = 0;
+static int kRowIndexTableViewConformingCell = 0;
+static int kRowIndexTableViewNonConformingCell = 1;
 
 #pragma mark - Setup/Teardown
 
 - (void)setUp {
   [super setUp];
-
-  _indexPathOfConformingCell = [NSIndexPath indexPathForRow:0 inSection:0];
-  _indexPathOfNonConformingCell = [NSIndexPath indexPathForRow:1 inSection:0];
   
   _tableView = [[YLTableView alloc] init];
   _dataSource = [[YLTableViewDataSourceTestStub alloc] init];
@@ -42,53 +40,53 @@
   _dataSource.tableViewCells = [self _cellsForTableView];
 }
 
-- (void)tearDown {
-  _tableView.delegate = nil;
-  _tableView.dataSource = nil;
-  [super tearDown];
-}
-
 #pragma mark - Helpers
 
-- (NSDictionary *)_cellsForTableView {
+- (NSDictionary<NSIndexPath *, YLTableViewCell * > *)_cellsForTableView {
   NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
   
-  YLTableViewCell * nonConformingCell = [[YLTableViewCell alloc] init];
   YLTableViewCell * conformingCell = [[YLTableViewCellTestStub alloc] init];
+  YLTableViewCell * nonConformingCell = [[YLTableViewCell alloc] init];
 
-  [dict setObject:nonConformingCell forKey:self.indexPathOfNonConformingCell];
-  [dict setObject:conformingCell forKey:self.indexPathOfConformingCell];
+  [dict setObject:conformingCell forKey:[self _indexPathForConformingCell]];
+  [dict setObject:nonConformingCell forKey:[self _indexPathForNonConformingCell]];
   
   return (NSDictionary *)dict;
 }
 
+- (NSIndexPath *)_indexPathForConformingCell {
+  return [NSIndexPath indexPathForRow:kRowIndexTableViewConformingCell inSection:kSectionIndexTableView];
+}
+
+- (NSIndexPath *)_indexPathForNonConformingCell {
+  return [NSIndexPath indexPathForRow:kRowIndexTableViewNonConformingCell inSection:kSectionIndexTableView];
+}
+
 #pragma mark - Tests
 
-- (void)_testEstimatedRowHeightWithConformingCell {
-  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:self.indexPathOfConformingCell];
-  XCTAssertEqual(height, kYLTableViewCellStubHeight);
+- (void)_testEstimatedRowHeightForIndexPath:(NSIndexPath *)indexPath withExpectedHeight:(CGFloat)expectedHeight {
+  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:indexPath];
+  XCTAssertEqual(height, expectedHeight);
 }
 
 - (void)testThatEstimatedRowHeightIsFromCellConformingProtocol {
   self.dataSource.shouldProvideOverriddenHeight = NO;
-  [self _testEstimatedRowHeightWithConformingCell];
+  [self _testEstimatedRowHeightForIndexPath:[self _indexPathForConformingCell] withExpectedHeight:kYLTableViewCellStubHeight];
 }
 
 - (void)testThatEstimatedRowHeightIsFromCellConformingProtocolEvenWithAlternateMethod {
   self.dataSource.shouldProvideOverriddenHeight = YES;
-  [self _testEstimatedRowHeightWithConformingCell];
+  [self _testEstimatedRowHeightForIndexPath:[self _indexPathForConformingCell] withExpectedHeight:kYLTableViewCellStubHeight];
 }
 
 - (void)testThatEstimatedRowHeightIsFromAlternateMethodForNonConformingCell {
   self.dataSource.shouldProvideOverriddenHeight = YES;
-  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:self.indexPathOfNonConformingCell];
-  XCTAssertEqual(height, kYLTableViewDataSourceTestStubOverridenHeight);
+  [self _testEstimatedRowHeightForIndexPath:[self _indexPathForNonConformingCell] withExpectedHeight:kYLTableViewDataSourceTestStubOverriddenHeight];
 }
 
 - (void)testThatEstimatedRowHeightIsDefault {
   self.dataSource.shouldProvideOverriddenHeight = NO;
-  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:self.indexPathOfNonConformingCell];
-  XCTAssertEqual(height, UITableViewAutomaticDimension);
+  [self _testEstimatedRowHeightForIndexPath:[self _indexPathForNonConformingCell] withExpectedHeight:UITableViewAutomaticDimension];
 }
 
 @end

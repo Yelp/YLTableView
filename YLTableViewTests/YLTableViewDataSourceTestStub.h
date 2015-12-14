@@ -9,16 +9,16 @@
 #import "YLTableViewCell.h"
 #import "YLTableViewDataSource.h"
 
+//! If shouldProvideOverriddenHeight, this is the height returned by estimatedHeightForRow:inTableView:
+extern const CGFloat kYLTableViewDataSourceTestStubOverriddenHeight;
+
 //! YLTableViewDataSource stub used for testing purposes
 @interface YLTableViewDataSourceTestStub : YLTableViewDataSource
 
 //! This is used to populate the table with cells at their respective index paths
-@property (copy, nonatomic) NSDictionary<NSIndexPath *, YLTableViewCell*> *tableViewCells;
+@property (copy, nonatomic) NSDictionary<NSIndexPath *, YLTableViewCell* > *tableViewCells;
 
-//! Set to true to override the default height (-1) of estimatedHeightForRow:inTableView: to return kYLTableViewDataSourceTestStubOverridenHeight
+//! Set to true to override the default height (-1) of estimatedHeightForRow:inTableView: to return kYLTableViewDataSourceTestStubOverriddenHeight
 @property (assign, nonatomic) BOOL shouldProvideOverriddenHeight;
-
-//! If shouldProvideOverriddenHeight, this is the height returned by estimatedHeightForRow:inTableView:
-extern const CGFloat kYLTableViewDataSourceTestStubOverridenHeight;
 
 @end
