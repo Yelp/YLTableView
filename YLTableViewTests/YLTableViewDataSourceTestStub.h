@@ -18,7 +18,7 @@ extern const CGFloat kYLTableViewDataSourceTestStubOverriddenHeight;
 //! This is used to populate the table with cells at their respective index paths
 @property (copy, nonatomic) NSDictionary<NSIndexPath *, YLTableViewCell* > *tableViewCells;
 
-//! Set to true to override the default height (-1) of estimatedHeightForRow:inTableView: to return kYLTableViewDataSourceTestStubOverriddenHeight
+//! Set to true to override the default height of estimatedHeightForRow:inTableView: to return kYLTableViewDataSourceTestStubOverriddenHeight
 @property (assign, nonatomic) BOOL shouldProvideOverriddenHeight;
 
 @end

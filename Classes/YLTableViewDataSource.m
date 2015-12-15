@@ -56,7 +56,7 @@
    they can override this method.
    For more information, see tableView:estimatedHeightForRowAtIndexPath.
    */
-  return -1;
+  return UITableViewAutomaticDimension;
 }
 
 #pragma mark Private Helpers
@@ -203,12 +203,7 @@
     return [(id<YLTableViewCellEstimatedRowHeight>)cellClass estimatedRowHeight];
   }
 
-  CGFloat estimatedHeightForRow = [self estimatedHeightForRow:indexPath inTableView:tableView];
-  if (estimatedHeightForRow != -1) {
-    return estimatedHeightForRow;
-  }
-
-  return UITableViewAutomaticDimension;
+  return [self estimatedHeightForRow:indexPath inTableView:tableView];
 }
 
 #pragma mark ChildViewController support
