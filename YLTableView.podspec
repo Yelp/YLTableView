@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'YLTableView'
-  s.version      = '1.0.3'
+  s.version      = '1.1.3'
   s.license      = 'Apache V2'
   s.summary      = 'Yelp iOS table view framework'
   s.homepage     = 'https://github.com/Yelp/YLTableView'
