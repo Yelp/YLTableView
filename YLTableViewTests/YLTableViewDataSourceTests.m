@@ -8,7 +8,6 @@
 
 #import "YLTableView.h"
 #import "YLTableViewCell.h"
-#import "YLTableViewCellEstimatedRowHeight.h"
 #import "YLTableViewCellTestStub.h"
 #import "YLTableViewDataSource.h"
 #import "YLTableViewDataSourceTestStub.h"
@@ -43,10 +42,10 @@ static const int kRowIndexTableViewNonConformingCell = 1;
 
 #pragma mark - Helpers
 
-- (NSDictionary<NSIndexPath *, YLTableViewCell * > *)_cellsForTableView {
+- (NSDictionary<NSIndexPath *, UITableViewCell<YLTableViewCell> * > *)_cellsForTableView {
   return @{
     [self _indexPathForConformingCell]: [[YLTableViewCellTestStub alloc] init],
-    [self _indexPathForNonConformingCell]: [[YLTableViewCell alloc] init],
+    [self _indexPathForNonConformingCell]: [[UITableViewCell alloc] init],
   };
 }
 
@@ -60,29 +59,14 @@ static const int kRowIndexTableViewNonConformingCell = 1;
 
 #pragma mark - Tests
 
-- (void)_testEstimatedRowHeightForIndexPath:(NSIndexPath *)indexPath withExpectedHeight:(CGFloat)expectedHeight {
-  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:indexPath];
-  XCTAssertEqual(height, expectedHeight);
+- (void)testEstimatedRowHeightFromConformingCell{
+  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForConformingCell]];
+  XCTAssertEqual(height, kYLTableViewCellStubHeight);
 }
 
-- (void)testThatEstimatedRowHeightIsFromCellConformingProtocol {
-  self.dataSource.shouldProvideOverriddenHeight = NO;
-  [self _testEstimatedRowHeightForIndexPath:[self _indexPathForConformingCell] withExpectedHeight:kYLTableViewCellStubHeight];
+- (void)testThatEstimatedRowHeightCannotBeCalledFromNonConformingCell {
+  XCTAssertThrows([self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForNonConformingCell]]);
 }
 
-- (void)testThatEstimatedRowHeightIsFromCellConformingProtocolEvenWithAlternateMethod {
-  self.dataSource.shouldProvideOverriddenHeight = YES;
-  [self _testEstimatedRowHeightForIndexPath:[self _indexPathForConformingCell] withExpectedHeight:kYLTableViewCellStubHeight];
-}
-
-- (void)testThatEstimatedRowHeightIsFromAlternateMethodForNonConformingCell {
-  self.dataSource.shouldProvideOverriddenHeight = YES;
-  [self _testEstimatedRowHeightForIndexPath:[self _indexPathForNonConformingCell] withExpectedHeight:kYLTableViewDataSourceTestStubOverriddenHeight];
-}
-
-- (void)testThatEstimatedRowHeightIsDefault {
-  self.dataSource.shouldProvideOverriddenHeight = NO;
-  [self _testEstimatedRowHeightForIndexPath:[self _indexPathForNonConformingCell] withExpectedHeight:UITableViewAutomaticDimension];
-}
 
 @end

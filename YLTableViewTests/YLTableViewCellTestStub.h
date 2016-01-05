@@ -1,5 +1,5 @@
 //
-//  YLTableViewCellConformsToProtocol.h
+//  YLTableViewCellTestStub.h
 //  YLTableView
 //
 //  Created by Ushhud Khalid on 12/9/15.
@@ -7,12 +7,11 @@
 //
 
 #import "YLTableViewCell.h"
-#import "YLTableViewCellEstimatedRowHeight.h"
 
 //! The height returned by calling estimatedRowHeight on this cell
 extern const CGFloat kYLTableViewCellStubHeight;
 
-//! YLTableViewCell stub used for testing purposes. Take note that this conforms to the YLTableViewCellEstimatedRowHeight protocol.
-@interface YLTableViewCellTestStub : YLTableViewCell <YLTableViewCellEstimatedRowHeight>
+//! YLTableViewCell stub used for testing purposes
+@interface YLTableViewCellTestStub : UITableViewCell <YLTableViewCell>
 
 @end

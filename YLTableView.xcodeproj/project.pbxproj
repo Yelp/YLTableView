@@ -12,7 +12,6 @@
 		A6BADBB51C1A01C400501E0C /* YLTableViewDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BADBB21C1A01C400501E0C /* YLTableViewDataSourceTests.m */; };
 		A8CB51871C18B40E00F8528A /* YLRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51711C18B40E00F8528A /* YLRefreshHeaderView.m */; };
 		A8CB51881C18B40E00F8528A /* YLTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51751C18B40E00F8528A /* YLTableView.m */; };
-		A8CB51891C18B40E00F8528A /* YLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51771C18B40E00F8528A /* YLTableViewCell.m */; };
 		A8CB518A1C18B40E00F8528A /* YLTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB517B1C18B40E00F8528A /* YLTableViewDataSource.m */; };
 		A8CB518B1C18B40E00F8528A /* YLTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB517E1C18B40E00F8528A /* YLTableViewHeaderFooterView.m */; };
 		A8CB518C1C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CB51821C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.m */; };
@@ -48,7 +47,6 @@
 		A6BADBAE1C1A01B900501E0C /* YLTableViewDataSourceTestStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewDataSourceTestStub.h; sourceTree = "<group>"; };
 		A6BADBAF1C1A01B900501E0C /* YLTableViewDataSourceTestStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableViewDataSourceTestStub.m; sourceTree = "<group>"; };
 		A6BADBB21C1A01C400501E0C /* YLTableViewDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableViewDataSourceTests.m; sourceTree = "<group>"; };
-		A6BADBB71C1A01E300501E0C /* YLTableViewCellEstimatedRowHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewCellEstimatedRowHeight.h; sourceTree = "<group>"; };
 		A8CB51621C18B38700F8528A /* libYLTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYLTableView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8CB51701C18B40E00F8528A /* YLRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRefreshHeaderView.h; sourceTree = "<group>"; };
 		A8CB51711C18B40E00F8528A /* YLRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLRefreshHeaderView.m; sourceTree = "<group>"; };
@@ -57,8 +55,6 @@
 		A8CB51741C18B40E00F8528A /* YLTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableView.h; sourceTree = "<group>"; };
 		A8CB51751C18B40E00F8528A /* YLTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableView.m; sourceTree = "<group>"; };
 		A8CB51761C18B40E00F8528A /* YLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewCell.h; sourceTree = "<group>"; };
-		A8CB51771C18B40E00F8528A /* YLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableViewCell.m; sourceTree = "<group>"; };
-		A8CB51781C18B40E00F8528A /* YLTableViewCellPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewCellPrivate.h; sourceTree = "<group>"; };
 		A8CB51791C18B40E00F8528A /* YLTableViewChildViewControllerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewChildViewControllerCell.h; sourceTree = "<group>"; };
 		A8CB517A1C18B40E00F8528A /* YLTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewDataSource.h; sourceTree = "<group>"; };
 		A8CB517B1C18B40E00F8528A /* YLTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableViewDataSource.m; sourceTree = "<group>"; };
@@ -120,9 +116,6 @@
 				A8CB51741C18B40E00F8528A /* YLTableView.h */,
 				A8CB51751C18B40E00F8528A /* YLTableView.m */,
 				A8CB51761C18B40E00F8528A /* YLTableViewCell.h */,
-				A8CB51771C18B40E00F8528A /* YLTableViewCell.m */,
-				A6BADBB71C1A01E300501E0C /* YLTableViewCellEstimatedRowHeight.h */,
-				A8CB51781C18B40E00F8528A /* YLTableViewCellPrivate.h */,
 				A8CB51791C18B40E00F8528A /* YLTableViewChildViewControllerCell.h */,
 				A8CB517A1C18B40E00F8528A /* YLTableViewDataSource.h */,
 				A8CB517B1C18B40E00F8528A /* YLTableViewDataSource.m */,
@@ -263,7 +256,6 @@
 				A8CB51881C18B40E00F8528A /* YLTableView.m in Sources */,
 				A8CB518A1C18B40E00F8528A /* YLTableViewDataSource.m in Sources */,
 				A8CB518B1C18B40E00F8528A /* YLTableViewHeaderFooterView.m in Sources */,
-				A8CB51891C18B40E00F8528A /* YLTableViewCell.m in Sources */,
 				A8CB518C1C18B40E00F8528A /* YLTableViewSectionHeaderFooterLabelView.m in Sources */,
 				A8CB51871C18B40E00F8528A /* YLRefreshHeaderView.m in Sources */,
 				A8CB518D1C18B40E00F8528A /* YLTableViewSectionHeaderFooterView.m in Sources */,
@@ -374,7 +366,7 @@
 		A8CB516C1C18B38700F8528A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -384,7 +376,7 @@
 		A8CB516D1C18B38700F8528A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

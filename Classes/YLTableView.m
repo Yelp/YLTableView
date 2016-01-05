@@ -12,7 +12,6 @@
 #import "YLRefreshHeaderView.h"
 #import "YLRefreshHeaderViewPrivate.h"
 #import "YLTableViewCell.h"
-#import "YLTableViewCellPrivate.h"
 #import "YLTableViewDataSource.h"
 #import "YLTableViewSectionHeaderFooterView.h"
 
@@ -49,7 +48,7 @@ NS_ASSUME_NONNULL_END
 
 - (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier {
   NSAssert(identifier, @"Must have a reuse identifier.");
-  NSAssert([cellClass isSubclassOfClass:[YLTableViewCell class]], @"You can only use subclasses of YLTableViewCell.");
+  NSAssert([cellClass conformsToProtocol:@protocol(YLTableViewCell)], @"You can only use cells conforming to YLTableViewCell.");
 
   [super registerClass:cellClass forCellReuseIdentifier:identifier];
 
@@ -71,20 +70,6 @@ NS_ASSUME_NONNULL_END
   } else {
     [self.headerFooterViewClassForReuseIdentifier removeObjectForKey:identifier];
   }
-}
-
-- (YLTableViewCell *)sizingCellForReuseIdentifier:(NSString *)reuseIdentifier {
-  NSAssert(reuseIdentifier, @"Must have a reuse identifier.");
-  NSAssert(self.cellClassForReuseIdentifier[reuseIdentifier], @"You must register a class for this reuse identifier.");
-
-  if (!self.sizingCellForReuseIdentifier[reuseIdentifier]) {
-    Class cellClass = NSClassFromString(self.cellClassForReuseIdentifier[reuseIdentifier]);
-    YLTableViewCell *const sizingCell = [(YLTableViewCell *)[cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-    sizingCell.sizingCell = YES;
-    self.sizingCellForReuseIdentifier[reuseIdentifier] = sizingCell;
-  }
-
-  return self.sizingCellForReuseIdentifier[reuseIdentifier];
 }
 
 - (YLTableViewSectionHeaderFooterView *)sizingHeaderFooterViewForReuseIdentifier:(NSString *)reuseIdentifier {
