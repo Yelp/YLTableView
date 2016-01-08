@@ -33,16 +33,6 @@
   [self.contentLayoutGuideView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_label]|" options:0 metrics:nil views:views]];
 }
 
-- (void)layoutSubviews {
-  [super layoutSubviews];
-
-  if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0) {
-    self.label.preferredMaxLayoutWidth = CGRectGetWidth(self.label.bounds);
-    [super layoutSubviews];
-  }
-}
-
-
 #pragma mark Text property
 
 - (void)setText:(NSString *)text {

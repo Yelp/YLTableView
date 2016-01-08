@@ -53,10 +53,6 @@ NS_ASSUME_NONNULL_END
   // The layout guide doesn't like being told to have a negative width, so we have to make sure it's at least 0.
   self.contentLayoutGuideWidthConstraint.constant = MAX(CGRectGetWidth(self.bounds) - edgeInsets.left - edgeInsets.right, 0);
 
-  if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0) {
-    [self.contentView layoutIfNeeded];
-  }
-
   [super layoutSubviews];
 }
 

@@ -54,9 +54,6 @@
     _tableView.dataSource = _dataSource;
     _tableView.delegate = _dataSource;
 
-    // Make sure you set estimated row height, or UITableViewAutomaticDimension won't work.
-    _tableView.estimatedRowHeight = 44.0;
-
     // Set up a refresh header
     _tableView.refreshHeaderView = [[YLExampleRefreshHeader alloc] init];
     [_tableView.refreshHeaderView addTarget:self action:@selector(_shouldRefresh) forControlEvents:UIControlEventValueChanged];

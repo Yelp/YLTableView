@@ -49,11 +49,15 @@
   }
 }
 
-#pragma mark YLTableViewCell Subclass
+#pragma mark YLTableViewCell protocol
 
 - (void)setModel:(id)model {
   NSAssert([model isKindOfClass:[NSString class]], @"Must use %@ with %@", NSStringFromClass([NSString class]), NSStringFromClass([self class]));
   self.mainTextLabel.text = (NSString *)model;
+}
+
++ (CGFloat)estimatedRowHeight {
+  return 44.0;
 }
 
 @end

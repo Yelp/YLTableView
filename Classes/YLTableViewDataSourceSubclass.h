@@ -8,7 +8,7 @@
 
 #import "YLTableViewDataSource.h"
 
-@class YLTableViewCell;
+@protocol YLTableViewCell;
 @class YLTableViewSectionHeaderFooterView;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * Override this method if you need to do cell-specific configuration (for example, alternating background colors) but call super implementation first.
  */
-- (void)tableView:(UITableView *)tableView configureCell:(YLTableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath NS_REQUIRES_SUPER;
+- (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell<YLTableViewCell> *)cell forIndexPath:(NSIndexPath *)indexPath NS_REQUIRES_SUPER;
 
 //! Override this method to configure headerView to display content in section but call super implementation first.
 - (void)tableView:(UITableView *)tableView configureHeader:(YLTableViewSectionHeaderFooterView *)headerView forSection:(NSUInteger)section NS_REQUIRES_SUPER;

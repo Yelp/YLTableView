@@ -13,27 +13,51 @@
 #import "YLTableView.h"
 #import "YLTableViewPrivate.h"
 #import "YLTableViewCell.h"
-#import "YLTableViewCellPrivate.h"
 #import "YLTableViewChildViewControllerCell.h"
 #import "YLTableViewSectionHeaderFooterView.h"
 #import "YLTableViewSectionHeaderFooterViewPrivate.h"
 
+@interface YLTableViewDataSource ()
+
+//! This is used to cache the estimated row heights.
+@property (strong, nonatomic) NSMutableDictionary<NSString *, NSNumber *> * indexPathToEstimatedRowHeight;
+
+@end
+
 @implementation YLTableViewDataSource
+
+
+#pragma mark indexPathToEstimatedRowHeight property methods
+
+- (NSMutableDictionary<NSString *,NSNumber *> *)indexPathToEstimatedRowHeight {
+  if (!_indexPathToEstimatedRowHeight) {
+    _indexPathToEstimatedRowHeight = [[NSMutableDictionary alloc] init];
+  }
+
+  return _indexPathToEstimatedRowHeight;
+}
 
 #pragma mark Public Helpers
 
 - (void)reloadVisibleCellForModel:(id)model inTableView:(UITableView *)tableView {
   for (NSIndexPath *indexPath in [tableView indexPathsForVisibleRows]) {
     if ([self tableView:tableView modelForCellAtIndexPath:indexPath] == model) {
-      [(YLTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] setModel:model];
+      [(UITableViewCell<YLTableViewCell> *)[tableView cellForRowAtIndexPath:indexPath] setModel:model];
       return;
     }
   }
 }
 
+#pragma mark Private Helpers
+
+//! Constructs a cache key for the given index path. UITableView sometimes returns a different subclass, NSMutableIndexPath, so we can't use the index path as the key by itself.
++ (NSString *)_keyForIndexPath:(NSIndexPath *)indexPath {
+  return [NSString stringWithFormat:@"%ld,%ld", (long)indexPath.section, (long)indexPath.row];
+}
+
 #pragma mark Configuration
 
-- (void)tableView:(UITableView *)tableView configureCell:(YLTableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell<YLTableViewCell> *)cell forIndexPath:(NSIndexPath *)indexPath {
   [cell setModel:[self tableView:tableView modelForCellAtIndexPath:indexPath]];
 }
 
@@ -77,7 +101,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   NSString *const reuseID = [self tableView:tableView reuseIdentifierForCellAtIndexPath:indexPath];
   NSAssert(reuseID != nil, @"Must have a reuse identifier.");
-  YLTableViewCell *cell = (YLTableViewCell *)[tableView dequeueReusableCellWithIdentifier:reuseID forIndexPath:indexPath];
+  UITableViewCell<YLTableViewCell> *cell = (UITableViewCell<YLTableViewCell> *)[tableView dequeueReusableCellWithIdentifier:reuseID forIndexPath:indexPath];
   [self tableView:tableView configureCell:cell forIndexPath:indexPath];
   return cell;
 }
@@ -112,16 +136,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   NSAssert([tableView isKindOfClass:[YLTableView class]], @"This can only be the delegate of a YLTableView.");
-  
-  if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
-    return UITableViewAutomaticDimension;
-  }
-  
-  NSString *const reuseID = [self tableView:tableView reuseIdentifierForCellAtIndexPath:indexPath];
-  YLTableViewCell *cell = [(YLTableView *)tableView sizingCellForReuseIdentifier:reuseID];
-  [self tableView:tableView configureCell:cell forIndexPath:indexPath];
-  
-  return [cell heightForWidth:CGRectGetWidth(tableView.bounds) separatorStyle:tableView.separatorStyle];
+  return UITableViewAutomaticDimension;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -152,9 +167,26 @@
   }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  NSAssert([tableView isKindOfClass:[YLTableView class]], @"This can only be the delegate of a YLTableView.");
+
+  if (self.shouldCacheEstimatedRowHeights && self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]]) {
+      return [self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]] floatValue];
+  }
+
+  Class cellClass = NSClassFromString([self tableView:tableView reuseIdentifierForCellAtIndexPath:indexPath]);
+  NSAssert([cellClass conformsToProtocol:@protocol(YLTableViewCell)], @"You can only use cells conforming to YLTableViewCell.");
+  return [(id<YLTableViewCell>)cellClass estimatedRowHeight];
+}
+
 #pragma mark ChildViewController support
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+  if (self.shouldCacheEstimatedRowHeights) {
+    self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]] = @(cell.frame.size.height);
+  }
+
   UIViewController *parentViewController = self.parentViewController;
   if ([cell conformsToProtocol:@protocol(YLTableViewChildViewControllerCell)]) {
     NSAssert(parentViewController != nil, @"Must have a parent view controller to support cell %@", cell);
