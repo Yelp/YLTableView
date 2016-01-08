@@ -39,7 +39,7 @@
   [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:views]];
 }
 
-#pragma mark YLTableViewCell subclass
+#pragma mark YLTableViewCell protocol
 
 - (void)setModel:(id)model {
   NSAssert([model isKindOfClass:[YLExampleImagesCellModel class]], @"Must use %@ with %@", NSStringFromClass([YLExampleImagesCellModel class]), NSStringFromClass([self class]));
@@ -48,6 +48,10 @@
   self.imagesViewController.imageOne = imagesModel.imageOne;
   self.imagesViewController.imageTwo = imagesModel.imageTwo;
   self.imagesViewController.imageThree = imagesModel.imageThree;
+}
+
++ (CGFloat)estimatedRowHeight {
+  return 44.0;
 }
 
 #pragma mark YLTableViewChildViewControllerCell

@@ -8,6 +8,6 @@
 
 #import <YLTableView/YLTableViewCell.h>
 
-@interface YLExampleImagesCell : YLTableViewCell
+@interface YLExampleImagesCell : UITableViewCell <YLTableViewCell>
 
 @end
