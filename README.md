@@ -9,7 +9,7 @@ To learn more about the goals high-level architecture of YLTableView, check out 
 We recommend using CocoaPods to install YLTableView. To do so, add the following to your `Podfile`:
 
 ``` ruby
-pod 'YLTableView', '~> 1.0'
+pod 'YLTableView', '~> 2.0'
 ``` 
 
 # Example usage
@@ -17,16 +17,20 @@ You can clone the project and check out the example app to see YLTableView in us
 
 ## Cells and Models
 
-All cells should take a model. Cells generally expect one specific type of model, while a given model could work with any number of cells. Start by creating a new `YLTableViewCell` subclass, and implementing `setModel:`:
+All cells should provide an estimated height and take a model. Cells generally expect one specific type of model, while a given model could work with any number of cells. Start by subclassing `UITableViewCell` and implementing the `YLTableViewCell` protocol, which requires implementing `setModel:` and `estimatedRowHeight:`:
 
 ``` objc
-@interface YLExampleTextCell : YLTableViewCell
+@interface YLExampleTextCell : UITableViewCell <YLTableViewCell>
 @end
 
 @implementation YLExampleTextCell
 - (void)setModel:(NSObject *)model {
   NSAssert([model isKindOfClass:[NSString class]], @"Must use %@ with %@", NSStringFromClass([NSString class]), NSStringFromClass([self class]));
   self.mainTextLabel.text = (NSString *)model;
+}
+
++ (CGFloat)estimatedRowHeight {
+  return 44.0;
 }
 @end
 ```
