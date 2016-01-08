@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Yelp. All rights reserved.
 //
 
-#import "YLTableViewCell.h"
 #import "YLTableViewDataSource.h"
 
+@protocol YLTableViewCell;
 @class YLTableViewSectionHeaderFooterView;
 
 NS_ASSUME_NONNULL_BEGIN

@@ -1,5 +1,5 @@
 //
-//  YLTableViewCellConformsToProtocol.m
+//  YLTableViewCellTestStub.m
 //  YLTableView
 //
 //  Created by Ushhud Khalid on 12/9/15.
