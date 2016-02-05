@@ -39,16 +39,6 @@
   [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-margin-[_mainTextLabel]-margin-|" options:0 metrics:metrics views:views]];
 }
 
-- (void)layoutSubviews {
-  [super layoutSubviews];
-  
-  // iOS8 automatically handles this for us.
-  if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0) {
-    self.mainTextLabel.preferredMaxLayoutWidth = self.mainTextLabel.frame.size.width;
-    [super layoutSubviews];
-  }
-}
-
 #pragma mark YLTableViewCell protocol
 
 - (void)setModel:(id)model {
