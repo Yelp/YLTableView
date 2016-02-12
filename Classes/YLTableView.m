@@ -33,7 +33,6 @@ NS_ASSUME_NONNULL_END
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
   if ((self = [super initWithFrame:frame style:style])) {
-    _cellClassForReuseIdentifier = [NSMutableDictionary dictionary];
     _sizingCellForReuseIdentifier = [NSMutableDictionary dictionary];
 
     _headerFooterViewClassForReuseIdentifier = [NSMutableDictionary dictionary];
