@@ -8,10 +8,14 @@
 
 #import "YLTableViewCell.h"
 
-//! The height returned by calling estimatedRowHeight on this cell
+/**
+ The height returned by calling estimatedRowHeight on this cell
+ */
 extern const CGFloat kYLTableViewCellStubHeight;
 
-//! YLTableViewCell stub used for testing purposes
+/**
+ YLTableViewCell stub used for testing purposes
+ */
 @interface YLTableViewCellTestStub : UITableViewCell <YLTableViewCell>
 
 @end

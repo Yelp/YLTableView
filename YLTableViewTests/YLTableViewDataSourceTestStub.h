@@ -9,10 +9,14 @@
 #import "YLTableViewCell.h"
 #import "YLTableViewDataSource.h"
 
-//! YLTableViewDataSource stub used for testing purposes
+/**
+ YLTableViewDataSource stub used for testing purposes
+ */
 @interface YLTableViewDataSourceTestStub : YLTableViewDataSource
 
-//! This is used to populate the table with cells at their respective index paths
+/**
+ This is used to populate the table with cells at their respective index paths
+ */
 @property (copy, nonatomic) NSDictionary<NSIndexPath *, UITableViewCell<YLTableViewCell>* > *tableViewCells;
 
 @end

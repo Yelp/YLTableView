@@ -9,13 +9,19 @@
 #import "YLTableViewSectionHeaderFooterView.h"
 
 NS_ASSUME_NONNULL_BEGIN
-//! A section header / footer view that supports a single, multi-line label
+/**
+ A section header / footer view that supports a single, multi-line label
+ */
 @interface YLTableViewSectionHeaderFooterLabelView : YLTableViewSectionHeaderFooterView
 
-//! We don't use the default textLabel because then this header/footer would be sized assuming the system default header/footer font.
+/**
+ We don't use the default textLabel because then this header/footer would be sized assuming the system default header/footer font.
+ */
 @property (readonly, strong, nonatomic) UILabel *label;
 
-//! Setting this property will set the label's text.
+/**
+ Setting this property will set the label's text.
+ */
 @property (copy, nonatomic, nullable) NSString *text;
 
 @end
