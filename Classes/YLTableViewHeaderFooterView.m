@@ -1,5 +1,5 @@
 //
-//  YPUITableViewHeaderFooterView.m
+//  YLTableViewHeaderFooterView.m
 //  YLTableView
 //
 //  Created by Tom Abraham on 5/13/14.

@@ -10,23 +10,41 @@
 
 @class YLRefreshHeaderView;
 
+/**
+ Enum to represent the current data loading state of the YLTableView
+ */
 typedef NS_ENUM(NSInteger, YLTableViewState) {
-  //! Initial loading state. Pull to refresh header will not show.
+  /**
+   Initial loading state. Pull to refresh header will not show.
+   */
   YLTableViewStateLoading = 0,
-  //! Normal state. Nothing is currently loading.
+  /**
+   Normal state. Nothing is currently loading.
+   */
   YLTableViewStateLoaded,
-  //! Refreshing after a pull-to-refresh. The refreshHeaderView will be showing.
+  /**
+   Refreshing after a pull-to-refresh. The refreshHeaderView will be showing.
+   */
   YLTableViewStateRefreshing,
-  //! Error state, eg network request errored.
+  /**
+   Error state, eg network request errored.
+   */
   YLTableViewStateErrored,
 };
 
+/**
+ UITableView subclass that encapsulates some boilerplate code for working with a UITableView full of self-sizing cells
+ */
 @interface YLTableView : UITableView
 
-//! If you want to use a refresh header, set this to a subclass of YLRefreshHeaderView
+/**
+ If you want to use a refresh header, set this to a subclass of YLRefreshHeaderView
+ */
 @property (strong, nonatomic, nullable) YLRefreshHeaderView *refreshHeaderView;
 
-//! The current state of the table view. Will update the state of the refresh header as needed.
+/**
+ The current state of the table view. Will update the state of the refresh header as needed.
+ */
 @property (assign, nonatomic) YLTableViewState state;
 
 @end

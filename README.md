@@ -12,7 +12,7 @@ We recommend using CocoaPods to install YLTableView. To do so, add the following
 
 ``` ruby
 pod 'YLTableView', '~> 2.0'
-``` 
+```
 
 # Example usage
 You can clone the project and check out the example app to see YLTableView in use.
@@ -37,7 +37,7 @@ All cells should provide an estimated height and take a model. Cells generally e
 @end
 ```
 
-This cell expects an NSString as its model, but your cell can use any object you want. 
+This cell expects an NSString as its model, but your cell can use any object you want.
 
 ## Data Source
 To use YLTableView, you should subclass `YLTableViewDataSource`. After implementing a few simple methods, `YLTableViewDataSource` takes care of connecting cells to models.
@@ -85,7 +85,6 @@ Finally, you can use a YLTableView to connect everything together.
 - (void)loadView {
   [super loadView];
   YLExampleTableViewDataSource *dataSource = [[YLExampleTableViewDataSource alloc] init];
-  
   YLTableView *tableView = [[YLTableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
   // YLTableViewDataSource has to be the delegate and the dataSource of the table view.
   tableView.dataSource = dataSource;
@@ -117,7 +116,7 @@ Check out [YLExampleRefreshHeader.m](YLTableViewExample/Classes/YLExampleRefresh
 
 ## License
 
-Copyright 2015 Yelp, Inc.
+Copyright 2016 Yelp, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
 

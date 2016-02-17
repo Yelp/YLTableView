@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface YLTableViewSectionHeaderFooterView ()
 
-/*!
+/**
  * You should add subviews to this view, and pin those views to it using Auto Layout constraints.
  *
  * This view is inset by contentLayoutGuideInsets + _systemContentLayoutGuideInsets. contentLayoutGuideInsets can be overridden by subclasses.

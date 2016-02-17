@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ Defines required methods that a UITableViewCell subclass must implement to work with a YLTableViewDataSource
+ */
 @protocol YLTableViewCell <NSObject>
 
-//! Apply a cell model to a cell.  Subclasses should implement this to decide how they display a model's content.
+/**
+ Apply a cell model to a cell.  Subclasses should implement this to decide how they display a model's content.
+ */
 - (void)setModel:(nullable id)model;
 
-//! Estimated height for a cell, called within tableView:estimatedHeightForRowAtIndexPath
+/**
+ Estimated height for a cell, called within tableView:estimatedHeightForRowAtIndexPath
+ */
 + (CGFloat)estimatedRowHeight;
 
 @end
