@@ -18,9 +18,6 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface YLTableView ()
 
-//! Maps reuse identifiers to sizing cells
-@property (strong, nonatomic) NSMutableDictionary *sizingCellForReuseIdentifier;
-
 //! Maps reuse identifiers to header/footer view class strings
 @property (strong, nonatomic) NSMutableDictionary *headerFooterViewClassForReuseIdentifier;
 //! Maps reuse identifiers to sizing header/footer views
@@ -33,8 +30,6 @@ NS_ASSUME_NONNULL_END
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
   if ((self = [super initWithFrame:frame style:style])) {
-    _sizingCellForReuseIdentifier = [NSMutableDictionary dictionary];
-
     _headerFooterViewClassForReuseIdentifier = [NSMutableDictionary dictionary];
     _sizingHeaderFooterViewsForReuseIdentifier = [NSMutableDictionary dictionary];
   }
