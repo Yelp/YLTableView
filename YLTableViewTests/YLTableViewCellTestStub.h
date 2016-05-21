@@ -13,9 +13,16 @@
  */
 extern const CGFloat kYLTableViewCellStubHeight;
 
+
 /**
  YLTableViewCell stub used for testing purposes
  */
 @interface YLTableViewCellTestStub : UITableViewCell <YLTableViewCell>
+@end
 
+
+/**
+ YLTableViewCell stub that implements estimatedRowHeightForModel:.
+ */
+@interface YLTableViewCellTestStubCustomEstimatedHeight : UITableViewCell <YLTableViewCell>
 @end

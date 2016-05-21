@@ -14,8 +14,6 @@
 
 #import <XCTest/XCTestCase.h>
 
-static NSString *const kCustomReuseIdentifier = @"NotAClass-ReuseId";
-
 @interface YLTableViewDataSourceTests : XCTestCase
 
 @property (strong, nonatomic) YLTableView *tableView;
@@ -31,13 +29,11 @@ static NSString *const kCustomReuseIdentifier = @"NotAClass-ReuseId";
   [super setUp];
   
   _tableView = [[YLTableView alloc] init];
-  [_tableView registerClass:[YLTableViewCellTestStub class]
-     forCellReuseIdentifier:NSStringFromClass([YLTableViewCellTestStub class])];
-  [_tableView registerClass:[YLTableViewCellTestStub class]
-     forCellReuseIdentifier:kCustomReuseIdentifier];
+  [_tableView registerClass:[YLTableViewCellTestStub class] forCellReuseIdentifier:@"StaticHeight"];
+  [_tableView registerClass:[YLTableViewCellTestStubCustomEstimatedHeight class] forCellReuseIdentifier:@"CustomHeight"];
 
   _dataSource = [[YLTableViewDataSourceTestStub alloc] init];
-  _dataSource.reuseIdentifiers = [self _reuseIdentifiersForTableView];
+  _dataSource.models = [self _modelsForTableView];
 
   _tableView.dataSource = _dataSource;
   _tableView.delegate = _dataSource;
@@ -45,31 +41,31 @@ static NSString *const kCustomReuseIdentifier = @"NotAClass-ReuseId";
 
 #pragma mark - Helpers
 
-- (NSDictionary<NSIndexPath *, NSString *> *)_reuseIdentifiersForTableView {
+- (NSDictionary<NSIndexPath *, YLTableViewCellModelTestStub *> *)_modelsForTableView {
   return @{
-    [self _indexPathForClassNameReuseIdentifier]: NSStringFromClass([YLTableViewCellTestStub class]),
-    [self _indexPathForCustomReuseIdentifier]: kCustomReuseIdentifier,
+    [self _indexPathForStaticHeightCell]: [YLTableViewCellModelTestStub modelWithReuseIdentifier:@"StaticHeight" estimatedHeight:0],
+    [self _indexPathForCustomHeightCell]: [YLTableViewCellModelTestStub modelWithReuseIdentifier:@"CustomHeight" estimatedHeight:50],
   };
 }
 
-- (NSIndexPath *)_indexPathForClassNameReuseIdentifier {
+- (NSIndexPath *)_indexPathForStaticHeightCell {
   return [NSIndexPath indexPathForRow:0 inSection:0];
 }
 
-- (NSIndexPath *)_indexPathForCustomReuseIdentifier {
+- (NSIndexPath *)_indexPathForCustomHeightCell {
   return [NSIndexPath indexPathForRow:1 inSection:0];
 }
 
 #pragma mark - Tests
 
-- (void)testEstimatedRowHeightForClassNameReuseIdentifier {
-  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForClassNameReuseIdentifier]];
+- (void)testStaticEstimatedRowHeight {
+  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForStaticHeightCell]];
   XCTAssertEqual(height, kYLTableViewCellStubHeight);
 }
 
-- (void)testEstimatedRowHeightForCustomReuseIdentifier {
-  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForCustomReuseIdentifier]];
-  XCTAssertEqual(height, kYLTableViewCellStubHeight);
+- (void)testCustomEstimatedRowHeight {
+  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForCustomHeightCell]];
+  XCTAssertEqual(height, 50);
 }
 
 - (void)testNonConformingCell {
