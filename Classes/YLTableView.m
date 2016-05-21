@@ -18,10 +18,10 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface YLTableView ()
 
-//! Maps reuse identifiers to header/footer view class strings
-@property (strong, nonatomic) NSMutableDictionary *headerFooterViewClassForReuseIdentifier;
+//! Maps reuse identifiers to header/footer view classes
+@property (strong, nonatomic) NSMutableDictionary<NSString *, Class> *headerFooterViewClassForReuseIdentifier;
 //! Maps reuse identifiers to sizing header/footer views
-@property (strong, nonatomic) NSMutableDictionary *sizingHeaderFooterViewsForReuseIdentifier;
+@property (strong, nonatomic) NSMutableDictionary<NSString *, YLTableViewSectionHeaderFooterView *> *sizingHeaderFooterViewsForReuseIdentifier;
 
 @end
 NS_ASSUME_NONNULL_END
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_END
   [super registerClass:headerFooterViewClass forHeaderFooterViewReuseIdentifier:identifier];
 
   if (headerFooterViewClass) {
-    self.headerFooterViewClassForReuseIdentifier[identifier] = NSStringFromClass(headerFooterViewClass);
+    self.headerFooterViewClassForReuseIdentifier[identifier] = headerFooterViewClass;
   } else {
     [self.headerFooterViewClassForReuseIdentifier removeObjectForKey:identifier];
   }
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_END
   NSAssert(self.headerFooterViewClassForReuseIdentifier[reuseIdentifier], @"You must register a class for this reuse identifier.");
 
   if (!self.sizingHeaderFooterViewsForReuseIdentifier[reuseIdentifier]) {
-    Class headerFooterViewClass = NSClassFromString(self.headerFooterViewClassForReuseIdentifier[reuseIdentifier]);
+    Class headerFooterViewClass = self.headerFooterViewClassForReuseIdentifier[reuseIdentifier];
     YLTableViewSectionHeaderFooterView *const sizingHeaderFooterView = [(YLTableViewSectionHeaderFooterView *)[headerFooterViewClass alloc] initWithReuseIdentifier:reuseIdentifier];
     self.sizingHeaderFooterViewsForReuseIdentifier[reuseIdentifier] = sizingHeaderFooterView;
   }
