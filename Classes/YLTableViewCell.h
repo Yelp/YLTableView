@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Defines required methods that a UITableViewCell subclass must implement to work with a YLTableViewDataSource
  */
@@ -23,4 +25,16 @@
  */
 + (CGFloat)estimatedRowHeight;
 
+@optional
+
+/**
+ Estimated height for a cell with the given model.
+
+ This method is optional, but if implemented it will be called instead of estimatedRowHeight within
+ tableView:estimatedHeightForRowAtIndexPath:
+ */
++ (CGFloat)estimatedRowHeightForModel:(id)model;
+
 @end
+
+NS_ASSUME_NONNULL_END
