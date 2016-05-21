@@ -18,6 +18,9 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface YLTableView ()
 
+//! Maps reuse identifiers to cell classes
+@property (strong, nonatomic) NSMutableDictionary<NSString *, Class> *cellClassForReuseIdentifier;
+
 //! Maps reuse identifiers to header/footer view classes
 @property (strong, nonatomic) NSMutableDictionary<NSString *, Class> *headerFooterViewClassForReuseIdentifier;
 //! Maps reuse identifiers to sizing header/footer views
@@ -30,6 +33,8 @@ NS_ASSUME_NONNULL_END
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
   if ((self = [super initWithFrame:frame style:style])) {
+    _cellClassForReuseIdentifier = [NSMutableDictionary dictionary];
+
     _headerFooterViewClassForReuseIdentifier = [NSMutableDictionary dictionary];
     _sizingHeaderFooterViewsForReuseIdentifier = [NSMutableDictionary dictionary];
   }
@@ -41,7 +46,14 @@ NS_ASSUME_NONNULL_END
 - (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier {
   NSAssert(identifier, @"Must have a reuse identifier.");
   NSAssert([cellClass conformsToProtocol:@protocol(YLTableViewCell)], @"You can only use cells conforming to YLTableViewCell.");
+
   [super registerClass:cellClass forCellReuseIdentifier:identifier];
+
+  if (cellClass) {
+    self.cellClassForReuseIdentifier[identifier] = cellClass;
+  } else {
+    [self.cellClassForReuseIdentifier removeObjectForKey:identifier];
+  }
 }
 
 - (void)registerClass:(Class)headerFooterViewClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier {
@@ -58,7 +70,7 @@ NS_ASSUME_NONNULL_END
 }
 
 - (Class)cellClassForReuseIdentifier:(NSString *)reuseIdentifier {
-  return NSClassFromString(reuseIdentifier);
+  return self.cellClassForReuseIdentifier[reuseIdentifier];
 }
 
 - (YLTableViewSectionHeaderFooterView *)sizingHeaderFooterViewForReuseIdentifier:(NSString *)reuseIdentifier {
