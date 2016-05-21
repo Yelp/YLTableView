@@ -57,6 +57,10 @@ NS_ASSUME_NONNULL_END
   }
 }
 
+- (Class)cellClassForReuseIdentifier:(NSString *)reuseIdentifier {
+  return NSClassFromString(reuseIdentifier);
+}
+
 - (YLTableViewSectionHeaderFooterView *)sizingHeaderFooterViewForReuseIdentifier:(NSString *)reuseIdentifier {
   NSAssert(reuseIdentifier, @"Must have a reuse identifier.");
   NSAssert(self.headerFooterViewClassForReuseIdentifier[reuseIdentifier], @"You must register a class for this reuse identifier.");

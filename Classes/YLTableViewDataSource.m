@@ -174,7 +174,7 @@
       return [self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]] floatValue];
   }
 
-  Class cellClass = NSClassFromString([self tableView:tableView reuseIdentifierForCellAtIndexPath:indexPath]);
+  Class cellClass = [(YLTableView *)tableView cellClassForReuseIdentifier:[self tableView:tableView reuseIdentifierForCellAtIndexPath:indexPath]];
   NSAssert([cellClass conformsToProtocol:@protocol(YLTableViewCell)], @"You can only use cells conforming to YLTableViewCell.");
   return [(id<YLTableViewCell>)cellClass estimatedRowHeight];
 }
