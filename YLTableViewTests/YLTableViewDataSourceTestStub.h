@@ -17,6 +17,6 @@
 /**
  This is used to populate the table with cells at their respective index paths
  */
-@property (copy, nonatomic) NSDictionary<NSIndexPath *, UITableViewCell<YLTableViewCell>* > *tableViewCells;
+@property (copy, nonatomic) NSDictionary<NSIndexPath *, NSString *> *reuseIdentifiers;
 
 @end
