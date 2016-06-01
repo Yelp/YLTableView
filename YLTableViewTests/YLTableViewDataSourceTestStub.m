@@ -13,7 +13,7 @@ const CGFloat kYLTableViewDataSourceTestStubOverriddenHeight = 200.0;
 @implementation YLTableViewDataSourceTestStub
 
 - (NSString *)tableView:(UITableView *)tableView reuseIdentifierForCellAtIndexPath:(NSIndexPath *)indexPath {
-  return NSStringFromClass([self.tableViewCells[indexPath] class]);
+  return self.reuseIdentifiers[indexPath];
 }
 
 @end

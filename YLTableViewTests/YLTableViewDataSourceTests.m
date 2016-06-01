@@ -14,6 +14,8 @@
 
 #import <XCTest/XCTestCase.h>
 
+static NSString *const kCustomReuseIdentifier = @"NotAClass-ReuseId";
+
 @interface YLTableViewDataSourceTests : XCTestCase
 
 @property (strong, nonatomic) YLTableView *tableView;
@@ -23,50 +25,55 @@
 
 @implementation YLTableViewDataSourceTests
 
-static const int kSectionIndexTableView = 0;
-static const int kRowIndexTableViewConformingCell = 0;
-static const int kRowIndexTableViewNonConformingCell = 1;
-
 #pragma mark - Setup/Teardown
 
 - (void)setUp {
   [super setUp];
   
   _tableView = [[YLTableView alloc] init];
+  [_tableView registerClass:[YLTableViewCellTestStub class]
+     forCellReuseIdentifier:NSStringFromClass([YLTableViewCellTestStub class])];
+  [_tableView registerClass:[YLTableViewCellTestStub class]
+     forCellReuseIdentifier:kCustomReuseIdentifier];
+
   _dataSource = [[YLTableViewDataSourceTestStub alloc] init];
+  _dataSource.reuseIdentifiers = [self _reuseIdentifiersForTableView];
+
   _tableView.dataSource = _dataSource;
   _tableView.delegate = _dataSource;
-  
-  _dataSource.tableViewCells = [self _cellsForTableView];
 }
 
 #pragma mark - Helpers
 
-- (NSDictionary<NSIndexPath *, UITableViewCell<YLTableViewCell> * > *)_cellsForTableView {
+- (NSDictionary<NSIndexPath *, NSString *> *)_reuseIdentifiersForTableView {
   return @{
-    [self _indexPathForConformingCell]: [[YLTableViewCellTestStub alloc] init],
-    [self _indexPathForNonConformingCell]: [[UITableViewCell alloc] init],
+    [self _indexPathForClassNameReuseIdentifier]: NSStringFromClass([YLTableViewCellTestStub class]),
+    [self _indexPathForCustomReuseIdentifier]: kCustomReuseIdentifier,
   };
 }
 
-- (NSIndexPath *)_indexPathForConformingCell {
-  return [NSIndexPath indexPathForRow:kRowIndexTableViewConformingCell inSection:kSectionIndexTableView];
+- (NSIndexPath *)_indexPathForClassNameReuseIdentifier {
+  return [NSIndexPath indexPathForRow:0 inSection:0];
 }
 
-- (NSIndexPath *)_indexPathForNonConformingCell {
-  return [NSIndexPath indexPathForRow:kRowIndexTableViewNonConformingCell inSection:kSectionIndexTableView];
+- (NSIndexPath *)_indexPathForCustomReuseIdentifier {
+  return [NSIndexPath indexPathForRow:1 inSection:0];
 }
 
 #pragma mark - Tests
 
-- (void)testEstimatedRowHeightFromConformingCell{
-  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForConformingCell]];
+- (void)testEstimatedRowHeightForClassNameReuseIdentifier {
+  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForClassNameReuseIdentifier]];
   XCTAssertEqual(height, kYLTableViewCellStubHeight);
 }
 
-- (void)testThatEstimatedRowHeightCannotBeCalledFromNonConformingCell {
-  XCTAssertThrows([self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForNonConformingCell]]);
+- (void)testEstimatedRowHeightForCustomReuseIdentifier {
+  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForCustomReuseIdentifier]];
+  XCTAssertEqual(height, kYLTableViewCellStubHeight);
 }
 
+- (void)testNonConformingCell {
+  XCTAssertThrows([self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"]);
+}
 
 @end
