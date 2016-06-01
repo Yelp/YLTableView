@@ -76,4 +76,10 @@ static NSString *const kCustomReuseIdentifier = @"NotAClass-ReuseId";
   XCTAssertThrows([self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"]);
 }
 
+- (void)testEstimatedRowHeightOverride {
+  self.dataSource.shouldOverrideEstimatedRowHeight = YES;
+  CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForCustomReuseIdentifier]];
+  XCTAssertEqual(height, kYLTableViewDataSourceTestStubOverriddenHeight);
+}
+
 @end

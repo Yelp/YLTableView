@@ -102,6 +102,7 @@
   NSString *const reuseID = [self tableView:tableView reuseIdentifierForCellAtIndexPath:indexPath];
   NSAssert(reuseID != nil, @"Must have a reuse identifier.");
   UITableViewCell<YLTableViewCell> *cell = (UITableViewCell<YLTableViewCell> *)[tableView dequeueReusableCellWithIdentifier:reuseID forIndexPath:indexPath];
+  NSAssert([[cell class] conformsToProtocol:@protocol(YLTableViewCell)], @"You can only use cells conforming to YLTableViewCell.");
   [self tableView:tableView configureCell:cell forIndexPath:indexPath];
   return cell;
 }
@@ -173,7 +174,11 @@
   if (self.shouldCacheEstimatedRowHeights && self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]]) {
       return [self.indexPathToEstimatedRowHeight[[[self class] _keyForIndexPath:indexPath]] floatValue];
   }
+  id model = [self tableView:tableView modelForCellAtIndexPath:indexPath];
+  return [self tableView:tableView estimatedRowHeightForModel:model forRowAtIndexPath:indexPath];
+}
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedRowHeightForModel:(id)model forRowAtIndexPath:(NSIndexPath *)indexPath {
   Class cellClass = [(YLTableView *)tableView cellClassForReuseIdentifier:[self tableView:tableView reuseIdentifierForCellAtIndexPath:indexPath]];
   NSAssert([cellClass conformsToProtocol:@protocol(YLTableViewCell)], @"You can only use cells conforming to YLTableViewCell.");
   return [(id<YLTableViewCell>)cellClass estimatedRowHeight];

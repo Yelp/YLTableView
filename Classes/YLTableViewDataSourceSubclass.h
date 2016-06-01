@@ -61,6 +61,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)tableView:(UITableView *)tableView configureFooter:(YLTableViewSectionHeaderFooterView *)footerView forSection:(NSUInteger)section NS_REQUIRES_SUPER;
 
+/**
+ Override this method to override YLTableViewDataSource's default estimated row height behavior (using the YLTableView class method) and provide your own estimated row height based on the cell's model and/or row
+ */
+- (CGFloat)tableView:(UITableView *)tableView estimatedRowHeightForModel:(nullable id)model forRowAtIndexPath:(NSIndexPath *)indexPath;
+
 
 #pragma mark Pull To Refresh support
 
