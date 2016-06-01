@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Override this method to override YLTableViewDataSource's default estimated row height behavior (using the YLTableView class method) and provide your own estimated row height based on the cell's model and/or row
  */
-- (CGFloat)tableView:(UITableView *)tableView estimatedRowHeightForModel:(nullable id)model forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath withModel:(nullable id)model;
 
 
 #pragma mark Pull To Refresh support

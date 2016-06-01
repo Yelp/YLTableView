@@ -22,11 +22,11 @@ const CGFloat kYLTableViewDataSourceTestStubOverriddenHeight = 200.0;
   return [[NSObject alloc] init];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedRowHeightForModel:(id)model forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath withModel:(id)model {
   if (self.shouldOverrideEstimatedRowHeight) {
     return kYLTableViewDataSourceTestStubOverriddenHeight;
   } else {
-    return [super tableView:tableView estimatedRowHeightForModel:model forRowAtIndexPath:indexPath];
+    return [super tableView:tableView estimatedHeightForRowAtIndexPath:indexPath withModel:model];
   }
 }
 
