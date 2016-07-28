@@ -10,6 +10,9 @@
 #import "YLRefreshHeaderViewPrivate.h"
 #import "YLRefreshHeaderViewSubclass.h"
 
+@interface YLRefreshHeaderView ()
+@property (nonatomic) CGFloat previousTopInset;
+@end
 @implementation YLRefreshHeaderView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -31,26 +34,32 @@
 }
 
 - (void)setRefreshState:(YLRefreshHeaderViewState)refreshState animated:(BOOL)animated {
-  _refreshState = refreshState;
+  if (_refreshState != refreshState) {
+    _refreshState = refreshState;
 
-  void (^animationBlock)() = ^{
-    UIScrollView *strongScrollView = self.scrollView;
-    UIEdgeInsets contentInset = strongScrollView.contentInset;
-    // TODO(mglidden): make this support view controllers that have UIRectEdgeTop
-    contentInset.top = (refreshState == YLRefreshHeaderViewStateRefreshing) ? self.pullAmountToRefresh : 0;
-    strongScrollView.contentInset = contentInset;
-  };
-  void (^completionBlock)(BOOL) = ^(BOOL finished) {
-    if (self.refreshState == YLRefreshHeaderViewStateClosing) {
-      self.refreshState = YLRefreshHeaderViewStateNormal;
+    void (^animationBlock)() = ^{
+      UIScrollView *strongScrollView = self.scrollView;
+      UIEdgeInsets contentInset = strongScrollView.contentInset;
+      if (refreshState == YLRefreshHeaderViewStateRefreshing) {
+        self.previousTopInset = contentInset.top;
+        contentInset.top = self.pullAmountToRefresh;
+      } else if (refreshState == YLRefreshHeaderViewStateClosing || refreshState == YLRefreshHeaderViewStateNormal) {
+        contentInset.top = self.previousTopInset;
+      }
+      strongScrollView.contentInset = contentInset;
+    };
+    void (^completionBlock)(BOOL) = ^(BOOL finished) {
+      if (self.refreshState == YLRefreshHeaderViewStateClosing) {
+        self.refreshState = YLRefreshHeaderViewStateNormal;
+      }
+    };
+
+    if (animated) {
+      [UIView animateWithDuration:0.2 animations:animationBlock completion:completionBlock];
+    } else {
+      animationBlock();
+      completionBlock(YES);
     }
-  };
-  
-  if (animated) {
-    [UIView animateWithDuration:0.2 animations:animationBlock completion:completionBlock];
-  } else {
-    animationBlock();
-    completionBlock(YES);
   }
 }
 
