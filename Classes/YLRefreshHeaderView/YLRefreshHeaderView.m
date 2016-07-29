@@ -11,8 +11,9 @@
 #import "YLRefreshHeaderViewSubclass.h"
 
 @interface YLRefreshHeaderView ()
-@property (nonatomic) CGFloat previousTopInset;
+@property (assign, nonatomic) CGFloat previousTopInset;
 @end
+
 @implementation YLRefreshHeaderView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -40,11 +41,16 @@
     void (^animationBlock)() = ^{
       UIScrollView *strongScrollView = self.scrollView;
       UIEdgeInsets contentInset = strongScrollView.contentInset;
-      if (refreshState == YLRefreshHeaderViewStateRefreshing) {
-        self.previousTopInset = contentInset.top;
-        contentInset.top = self.pullAmountToRefresh;
-      } else if (refreshState == YLRefreshHeaderViewStateClosing || refreshState == YLRefreshHeaderViewStateNormal) {
-        contentInset.top = self.previousTopInset;
+      switch (refreshState) {
+        case YLRefreshHeaderViewStateRefreshing:
+          self.previousTopInset = contentInset.top;
+          contentInset.top = self.pullAmountToRefresh;
+          break;
+        case YLRefreshHeaderViewStateClosing:
+        case YLRefreshHeaderViewStateNormal:
+          contentInset.top = self.previousTopInset;
+        default:
+          break;
       }
       strongScrollView.contentInset = contentInset;
     };
