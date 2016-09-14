@@ -74,7 +74,7 @@
   return 0;
 }
 
-- (CGFloat)relativeYContentOffsetForScrollView:(UIScrollView *)scrollView{
+- (CGFloat)_relativeYContentOffsetForScrollView:(UIScrollView *)scrollView{
   return scrollView.contentOffset.y + MAX(scrollView.contentInset.top, 0);
 }
 
@@ -83,19 +83,19 @@
 - (void)containingScrollViewDidScroll:(UIScrollView *)scrollView {
   if (scrollView.isDragging) {
     // If we were ready to refresh but then dragged back up, cancel the Ready to Refresh state.
-    if (self.refreshState == YLRefreshHeaderViewStateReadyToRefresh && [self relativeYContentOffsetForScrollView:scrollView] > -self.pullAmountToRefresh && [self relativeYContentOffsetForScrollView:scrollView] < 0) {
+    if (self.refreshState == YLRefreshHeaderViewStateReadyToRefresh && [self _relativeYContentOffsetForScrollView:scrollView] > -self.pullAmountToRefresh && [self _relativeYContentOffsetForScrollView:scrollView] < 0) {
       self.refreshState = YLRefreshHeaderViewStateNormal;
     // If we've dragged far enough, put us in the Ready to Refresh state
-    } else if (self.refreshState == YLRefreshHeaderViewStateNormal && [self relativeYContentOffsetForScrollView:scrollView] <= -self.pullAmountToRefresh) {
+    } else if (self.refreshState == YLRefreshHeaderViewStateNormal && [self _relativeYContentOffsetForScrollView:scrollView] <= -self.pullAmountToRefresh) {
       self.refreshState = YLRefreshHeaderViewStateReadyToRefresh;
     }
   }
-  self.currentPullAmount = MAX(0, -[self relativeYContentOffsetForScrollView:scrollView]);
+  self.currentPullAmount = MAX(0, -[self _relativeYContentOffsetForScrollView:scrollView]);
 }
 
 - (void)containingScrollViewDidEndDragging:(UIScrollView *)scrollView {
   // Trigger the action if it was pulled far enough.
-  if ([self relativeYContentOffsetForScrollView:scrollView] <= -self.pullAmountToRefresh &&  self.refreshState != YLRefreshHeaderViewStateRefreshing) {
+  if ([self _relativeYContentOffsetForScrollView:scrollView] <= -self.pullAmountToRefresh &&  self.refreshState != YLRefreshHeaderViewStateRefreshing) {
     [self sendActionsForControlEvents:UIControlEventValueChanged];
   } else {
     self.currentPullAmount = 0;

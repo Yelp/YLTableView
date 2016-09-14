@@ -22,6 +22,7 @@
     _label = [[UILabel alloc] init];
     _label.translatesAutoresizingMaskIntoConstraints = NO;
     _label.textAlignment = NSTextAlignmentCenter;
+
     [self addSubview:_label];
 
     NSDictionary *views = NSDictionaryOfVariableBindings(_label);
@@ -29,6 +30,8 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_label]-10-|" options:0 metrics:nil views:views]];
 
     [self setRefreshState:YLRefreshHeaderViewStateNormal];
+    self.isAccessibilityElement = YES;
+    self.accessibilityIdentifier = @"Refresh Header";
   }
   return self;
 }
@@ -53,6 +56,7 @@
       self.label.textColor = [UIColor greenColor];
       break;
   }
+  self.accessibilityLabel = self.label.text;
 }
 
 - (CGFloat)pullAmountToRefresh {
