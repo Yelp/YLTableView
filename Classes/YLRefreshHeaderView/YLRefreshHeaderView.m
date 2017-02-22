@@ -8,7 +8,6 @@
 
 #import "YLRefreshHeaderView.h"
 #import "YLRefreshHeaderViewPrivate.h"
-#import "YLRefreshHeaderViewSubclass.h"
 
 @implementation YLRefreshHeaderView
 

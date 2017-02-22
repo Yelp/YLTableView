@@ -7,7 +7,6 @@
 //
 
 #import "YLRefreshHeaderView.h"
-#import "YLRefreshHeaderViewSubclass.h"
 
 /**
  Methods used by YLTableViewDataSource and YLTableView to make the refresh header work.
