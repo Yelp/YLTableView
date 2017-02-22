@@ -51,7 +51,6 @@
 		A8CB51701C18B40E00F8528A /* YLRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRefreshHeaderView.h; sourceTree = "<group>"; };
 		A8CB51711C18B40E00F8528A /* YLRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLRefreshHeaderView.m; sourceTree = "<group>"; };
 		A8CB51721C18B40E00F8528A /* YLRefreshHeaderViewPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRefreshHeaderViewPrivate.h; sourceTree = "<group>"; };
-		A8CB51731C18B40E00F8528A /* YLRefreshHeaderViewSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRefreshHeaderViewSubclass.h; sourceTree = "<group>"; };
 		A8CB51741C18B40E00F8528A /* YLTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableView.h; sourceTree = "<group>"; };
 		A8CB51751C18B40E00F8528A /* YLTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTableView.m; sourceTree = "<group>"; };
 		A8CB51761C18B40E00F8528A /* YLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTableViewCell.h; sourceTree = "<group>"; };
@@ -134,7 +133,6 @@
 				A8CB51701C18B40E00F8528A /* YLRefreshHeaderView.h */,
 				A8CB51711C18B40E00F8528A /* YLRefreshHeaderView.m */,
 				A8CB51721C18B40E00F8528A /* YLRefreshHeaderViewPrivate.h */,
-				A8CB51731C18B40E00F8528A /* YLRefreshHeaderViewSubclass.h */,
 			);
 			path = YLRefreshHeaderView;
 			sourceTree = "<group>";
