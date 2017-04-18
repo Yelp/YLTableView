@@ -74,6 +74,11 @@ To use YLTableView, you should subclass `YLTableViewDataSource`. After implement
 @end
 ```
 
+#### Reuse identifiers and Swift
+YLTableView relies on using a cell class name as that cell's reuse identifier. To achieve this, you should use `NSStringFromClass([YLExampleTextCell class])` even with Swift code (`NSStringFromClass(ExampleTextCell)`). Using `String(YLExampleTextCell)` can cause issues with YLTableView.
+It is recommended to mark classes as `@objc(YLExampleTextCell) class ExampleTextCell: UITableViewCell` to make `NSStringFromClass` generate a user-readable name (i.e. `YLExampleTextCell`).
+
+
 ## Table View
 Finally, you can use a YLTableView to connect everything together.
 
