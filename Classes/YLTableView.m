@@ -37,6 +37,9 @@ NS_ASSUME_NONNULL_END
 
     _headerFooterViewClassForReuseIdentifier = [NSMutableDictionary dictionary];
     _sizingHeaderFooterViewsForReuseIdentifier = [NSMutableDictionary dictionary];
+
+    self.estimatedSectionHeaderHeight = 0;
+    self.estimatedSectionFooterHeight = 0;
   }
   return self;
 }

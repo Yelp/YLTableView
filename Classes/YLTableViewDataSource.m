@@ -150,7 +150,7 @@
     [self tableView:tableView configureHeader:headerView forSection:section];
     return [headerView heightForWidth:CGRectGetWidth(tableView.bounds)];
   } else {
-    return UITableViewAutomaticDimension;
+    return 0;
   }
 }
 
@@ -164,7 +164,7 @@
     [self tableView:tableView configureFooter:footerView forSection:section];
     return [footerView heightForWidth:CGRectGetWidth(tableView.bounds)];
   } else {
-    return UITableViewAutomaticDimension;
+    return 0;
   }
 }
 
