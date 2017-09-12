@@ -149,6 +149,9 @@
     headerView.sizingView = YES;
     [self tableView:tableView configureHeader:headerView forSection:section];
     return [headerView heightForWidth:CGRectGetWidth(tableView.bounds)];
+  } else if ([self respondsToSelector:@selector(tableView:titleForHeaderInSection:)] &&
+             [self tableView:tableView titleForHeaderInSection:section]) {
+    return UITableViewAutomaticDimension;
   } else {
     return 0;
   }
@@ -163,6 +166,9 @@
     footerView.sizingView = YES;
     [self tableView:tableView configureFooter:footerView forSection:section];
     return [footerView heightForWidth:CGRectGetWidth(tableView.bounds)];
+  } else if ([self respondsToSelector:@selector(tableView:titleForFooterInSection:)] &&
+             [self tableView:tableView titleForFooterInSection:section]) {
+    return UITableViewAutomaticDimension;
   } else {
     return 0;
   }
