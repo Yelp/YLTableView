@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) UIView *view;
 @property (weak, nonatomic, nullable) UITableView *tableView;
+@property (assign, nonatomic) CGFloat previousHeight;
 
 @end
 NS_ASSUME_NONNULL_END
@@ -57,17 +58,18 @@ NS_ASSUME_NONNULL_END
   // on OS7 and before, UITableViews do *not* like fractional heights for their table{Header/Footer}View.
   // they respond by increasing the space available for the table{Header/Footer}View by the fraction to the
   // nearest whole number on *each* layout pass. thus, we round to the nearest whole number. filed rdar://16909794
+  CGFloat newHeight = round(CGRectGetHeight(self.view.bounds));
   CGRect bounds = self.bounds;
-  bounds.size.height = round(CGRectGetHeight(self.view.bounds));
+  bounds.size.height = newHeight;
   self.bounds = bounds;
   
   // re-setting the header/footer tells the table view that its height changed
-  // it doesn't matter if it hasn't. UITableView is smart enough not to relayout if our height hasn't changed.
   UITableView *tableView = self.tableView;
-  if (tableView.tableHeaderView == self) tableView.tableHeaderView = self;
-  else if (tableView.tableFooterView == self) tableView.tableFooterView = self;
+  if (tableView.tableHeaderView == self && newHeight != self.previousHeight) tableView.tableHeaderView = self;
+  else if (tableView.tableFooterView == self && newHeight != self.previousHeight) tableView.tableFooterView = self;
   
   // we updated our height so we need to relayout our subviews
+  self.previousHeight = newHeight;
   [super layoutSubviews];
 }
 
