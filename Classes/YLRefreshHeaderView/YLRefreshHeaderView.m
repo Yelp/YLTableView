@@ -33,7 +33,7 @@
 - (void)setRefreshState:(YLRefreshHeaderViewState)refreshState animated:(BOOL)animated {
   _refreshState = refreshState;
 
-  void (^animationBlock)() = ^{
+  void (^animationBlock)(void) = ^{
     UIScrollView *strongScrollView = self.scrollView;
     UIEdgeInsets contentInset = strongScrollView.contentInset;
     // TODO(mglidden): make this support view controllers that have UIRectEdgeTop
