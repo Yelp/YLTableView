@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode7.2
-xcode_project: YLTableView.xcodeproj
-xcode_scheme: YLTableView
-xcode_sdk: iphonesimulator
+osx_image: xcode9
+install: gem install xcpretty
+script:
+  - xcodebuild clean build test -project "YLTableView.xcodeproj" -scheme "YLTableView" -destination "platform=iOS Simulator,name=iPhone 8" | xcpretty
