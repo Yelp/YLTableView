@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'YLTableView'
-  s.version      = '2.1.4'
+  s.version      = '2.2.0'
   s.license      = {:type => 'Apache 2', :file => 'LICENSE.txt'}
   s.summary      = 'Yelp iOS table view framework'
   s.homepage     = 'https://github.com/Yelp/YLTableView'
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.platform     = :ios
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.public_header_files = 'Classes/**/*.h'
   s.source_files = 'Classes/**/*.{h,m}'

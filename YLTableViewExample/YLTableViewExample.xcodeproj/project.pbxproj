@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5455B016D2A9E56EF850B57 /* libPods-YLTableViewExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64043A85733DA802B7C36C9B /* libPods-YLTableViewExample.a */; };
+		626A638E4001FFFBBBE6F8EC /* libPods-YLTableViewExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F6D1E0D7808379FB183B79 /* libPods-YLTableViewExample.a */; };
 		BBB3E4141B2255AE00051EF1 /* YLExampleImageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB3E3FA1B2255AE00051EF1 /* YLExampleImageControl.m */; };
 		BBB3E4151B2255AE00051EF1 /* YLExampleImagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB3E3FC1B2255AE00051EF1 /* YLExampleImagesCell.m */; };
 		BBB3E4161B2255AE00051EF1 /* YLExampleImagesCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB3E3FE1B2255AE00051EF1 /* YLExampleImagesCellModel.m */; };
@@ -25,9 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A56E1AB3D5DDEBD102DEF19 /* Pods-YLTableViewExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLTableViewExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YLTableViewExample/Pods-YLTableViewExample.debug.xcconfig"; sourceTree = "<group>"; };
-		64043A85733DA802B7C36C9B /* libPods-YLTableViewExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YLTableViewExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF901E9C5ACBA5832431D730 /* Pods-YLTableViewExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLTableViewExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-YLTableViewExample/Pods-YLTableViewExample.release.xcconfig"; sourceTree = "<group>"; };
+		01F6D1E0D7808379FB183B79 /* libPods-YLTableViewExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YLTableViewExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77E0294F6EFAD61F32AF8B13 /* Pods-YLTableViewExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLTableViewExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-YLTableViewExample/Pods-YLTableViewExample.release.xcconfig"; sourceTree = "<group>"; };
+		9C73FE2D338ACBD9DAFD01E5 /* Pods-YLTableViewExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLTableViewExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YLTableViewExample/Pods-YLTableViewExample.debug.xcconfig"; sourceTree = "<group>"; };
 		BBB3E3CE1B22555700051EF1 /* YLTableViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLTableViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB3E3F91B2255AE00051EF1 /* YLExampleImageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLExampleImageControl.h; sourceTree = "<group>"; };
 		BBB3E3FA1B2255AE00051EF1 /* YLExampleImageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLExampleImageControl.m; sourceTree = "<group>"; };
@@ -62,18 +62,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5455B016D2A9E56EF850B57 /* libPods-YLTableViewExample.a in Frameworks */,
+				626A638E4001FFFBBBE6F8EC /* libPods-YLTableViewExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		191492101A16BDDB9F77789C /* Pods */ = {
+		3321E9458CADC439D1A97443 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5A56E1AB3D5DDEBD102DEF19 /* Pods-YLTableViewExample.debug.xcconfig */,
-				AF901E9C5ACBA5832431D730 /* Pods-YLTableViewExample.release.xcconfig */,
+				01F6D1E0D7808379FB183B79 /* libPods-YLTableViewExample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4D8F43C23D5DD1B55C87030 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C73FE2D338ACBD9DAFD01E5 /* Pods-YLTableViewExample.debug.xcconfig */,
+				77E0294F6EFAD61F32AF8B13 /* Pods-YLTableViewExample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -84,8 +92,8 @@
 				BBB3E3F71B2255AE00051EF1 /* Classes */,
 				BBB3E4111B2255AE00051EF1 /* OtherSources */,
 				BBB3E3CF1B22555700051EF1 /* Products */,
-				191492101A16BDDB9F77789C /* Pods */,
-				D85156B30A9509C93DB8124A /* Frameworks */,
+				B4D8F43C23D5DD1B55C87030 /* Pods */,
+				3321E9458CADC439D1A97443 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,14 +153,6 @@
 			path = OtherSources;
 			sourceTree = "<group>";
 		};
-		D85156B30A9509C93DB8124A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				64043A85733DA802B7C36C9B /* libPods-YLTableViewExample.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,12 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBB3E3F11B22555700051EF1 /* Build configuration list for PBXNativeTarget "YLTableViewExample" */;
 			buildPhases = (
-				7FFF256EC250EBB7496352A1 /* Check Pods Manifest.lock */,
+				F1C8C5C216B1BF00944DC866 /* [CP] Check Pods Manifest.lock */,
 				BBB3E3CA1B22555700051EF1 /* Sources */,
 				BBB3E3CB1B22555700051EF1 /* Frameworks */,
 				BBB3E3CC1B22555700051EF1 /* Resources */,
-				F68E5F34F591B1A345D106F5 /* Copy Pods Resources */,
-				F33D171DA7DC3933E2FC1865 /* Embed Pods Frameworks */,
+				E7CEC2FA8309599B8E763C2F /* [CP] Embed Pods Frameworks */,
+				9962D9E238182FBFD861DC04 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,7 +182,7 @@
 		BBB3E3C61B22555700051EF1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Yelp;
 				TargetAttributes = {
 					BBB3E3CD1B22555700051EF1 = {
@@ -221,29 +221,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7FFF256EC250EBB7496352A1 /* Check Pods Manifest.lock */ = {
+		9962D9E238182FBFD861DC04 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YLTableViewExample/Pods-YLTableViewExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F33D171DA7DC3933E2FC1865 /* Embed Pods Frameworks */ = {
+		E7CEC2FA8309599B8E763C2F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,19 +251,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YLTableViewExample/Pods-YLTableViewExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F68E5F34F591B1A345D106F5 /* Copy Pods Resources */ = {
+		F1C8C5C216B1BF00944DC866 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YLTableViewExample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YLTableViewExample/Pods-YLTableViewExample-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -299,13 +302,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -328,7 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -344,13 +355,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -366,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -376,7 +395,7 @@
 		};
 		BBB3E3F21B22555700051EF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A56E1AB3D5DDEBD102DEF19 /* Pods-YLTableViewExample.debug.xcconfig */;
+			baseConfigurationReference = 9C73FE2D338ACBD9DAFD01E5 /* Pods-YLTableViewExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OtherSources/Info.plist;
@@ -388,7 +407,7 @@
 		};
 		BBB3E3F31B22555700051EF1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF901E9C5ACBA5832431D730 /* Pods-YLTableViewExample.release.xcconfig */;
+			baseConfigurationReference = 77E0294F6EFAD61F32AF8B13 /* Pods-YLTableViewExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OtherSources/Info.plist;

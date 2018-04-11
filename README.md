@@ -11,7 +11,7 @@ To learn more about the goals high-level architecture of YLTableView, check out 
 We recommend using CocoaPods to install YLTableView. To do so, add the following to your `Podfile`:
 
 ``` ruby
-pod 'YLTableView', '~> 2.0'
+pod 'YLTableView', '~> 2.2.0'
 ```
 
 # Example usage
@@ -89,10 +89,10 @@ Finally, you can use a YLTableView to connect everything together.
   // YLTableViewDataSource has to be the delegate and the dataSource of the table view.
   tableView.dataSource = dataSource;
   tableView.delegate = dataSource;
-  
+
   // Registering cells and reuse identifiers
   [tableView registerClass:[YLExampleTextCell class] forCellReuseIdentifier:NSStringFromClass([YLExampleTextCell class])];
-  
+
   self.view = tableView;
 }
 @end
