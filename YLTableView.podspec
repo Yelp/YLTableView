@@ -6,10 +6,8 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/Yelp/YLTableView'
   s.authors      = { 'Yelp iOS Team' => 'iphone@yelp.com' }
   s.source       = { :git => 'https://git@github.com/Yelp/YLTableView.git', :tag => 'v' + s.version.to_s }
-  s.requires_arc = true
 
-  s.platform     = :ios
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
   s.public_header_files = 'Classes/**/*.h'
   s.source_files = 'Classes/**/*.{h,m}'
