@@ -98,7 +98,9 @@
 				A8CB51B11C19EDE200F8528A /* YLTableViewTests */,
 				A8CB51631C18B38700F8528A /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		A8CB51631C18B38700F8528A /* Products */ = {
 			isa = PBXGroup;
