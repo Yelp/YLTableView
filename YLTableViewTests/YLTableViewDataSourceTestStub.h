@@ -6,8 +6,8 @@
 //  Copyright © 2015 Yelp. All rights reserved.
 //
 
-#import "YLTableViewCell.h"
-#import "YLTableViewDataSource.h"
+#import <YLTableView/YLTableViewCell.h>
+#import <YLTableView/YLTableViewDataSource.h>
 
 extern const CGFloat kYLTableViewDataSourceTestStubOverriddenHeight;
 

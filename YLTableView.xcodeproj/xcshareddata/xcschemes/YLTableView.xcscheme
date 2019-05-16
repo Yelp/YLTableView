@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A8CB51611C18B38700F8528A"
-               BuildableName = "libYLTableView.a"
+               BlueprintIdentifier = "78B3871B228DCA2A0037A5C2"
+               BuildableName = "YLTableView.framework"
                BlueprintName = "YLTableView"
                ReferencedContainer = "container:YLTableView.xcodeproj">
             </BuildableReference>
@@ -42,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A8CB51611C18B38700F8528A"
-            BuildableName = "libYLTableView.a"
+            BlueprintIdentifier = "78B3871B228DCA2A0037A5C2"
+            BuildableName = "YLTableView.framework"
             BlueprintName = "YLTableView"
             ReferencedContainer = "container:YLTableView.xcodeproj">
          </BuildableReference>
@@ -64,8 +64,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A8CB51611C18B38700F8528A"
-            BuildableName = "libYLTableView.a"
+            BlueprintIdentifier = "78B3871B228DCA2A0037A5C2"
+            BuildableName = "YLTableView.framework"
             BlueprintName = "YLTableView"
             ReferencedContainer = "container:YLTableView.xcodeproj">
          </BuildableReference>
@@ -82,8 +82,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A8CB51611C18B38700F8528A"
-            BuildableName = "libYLTableView.a"
+            BlueprintIdentifier = "78B3871B228DCA2A0037A5C2"
+            BuildableName = "YLTableView.framework"
             BlueprintName = "YLTableView"
             ReferencedContainer = "container:YLTableView.xcodeproj">
          </BuildableReference>

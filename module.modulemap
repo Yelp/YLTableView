@@ -1,0 +1,3 @@
+framework module YLTableView {
+  umbrella header "YLTableViewFramework.h"
+}

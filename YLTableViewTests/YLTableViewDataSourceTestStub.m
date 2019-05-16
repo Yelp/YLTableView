@@ -6,9 +6,12 @@
 //  Copyright © 2015 Yelp. All rights reserved.
 //
 
-#import "YLTableViewDataSourceTestStub.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-#import "YLTableViewDataSourceSubclass.h"
+#import <YLTableView/YLTableViewDataSourceSubclass.h>
+
+#import "YLTableViewDataSourceTestStub.h"
 
 const CGFloat kYLTableViewDataSourceTestStubOverriddenHeight = 200.0;
 
