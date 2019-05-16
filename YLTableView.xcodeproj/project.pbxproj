@@ -96,13 +96,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		78B3871D228DCA2A0037A5C2 /* YLTableView */ = {
+		78B3871D228DCA2A0037A5C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				78B3871E228DCA2A0037A5C2 /* YLTableViewFramework.h */,
 				78B3871F228DCA2A0037A5C2 /* Info.plist */,
 			);
-			path = YLTableView;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A8CB51591C18B38700F8528A = {
@@ -110,7 +109,7 @@
 			children = (
 				A8CB516E1C18B40E00F8528A /* Classes */,
 				A8CB51B11C19EDE200F8528A /* YLTableViewTests */,
-				78B3871D228DCA2A0037A5C2 /* YLTableView */,
+				78B3871D228DCA2A0037A5C2 /* Resources */,
 				A8CB51631C18B38700F8528A /* Products */,
 			);
 			indentWidth = 2;
@@ -137,6 +136,7 @@
 				A8CB517A1C18B40E00F8528A /* YLTableViewDataSource.h */,
 				A8CB517B1C18B40E00F8528A /* YLTableViewDataSource.m */,
 				A8CB517C1C18B40E00F8528A /* YLTableViewDataSourceSubclass.h */,
+				78B3871E228DCA2A0037A5C2 /* YLTableViewFramework.h */,
 				A8CB517D1C18B40E00F8528A /* YLTableViewHeaderFooterView.h */,
 				A8CB517E1C18B40E00F8528A /* YLTableViewHeaderFooterView.m */,
 				A8CB517F1C18B40E00F8528A /* YLTableViewPrivate.h */,
@@ -352,7 +352,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = YLTableView/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -385,7 +385,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = YLTableView/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
