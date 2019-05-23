@@ -16,6 +16,7 @@ FOUNDATION_EXPORT const unsigned char YLTableViewVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <YLTableView/PublicHeader.h>
 #import <YLTableView/YLRefreshHeaderView.h>
+#import <YLTableView/YLRefreshHeaderViewPrivate.h>
 #import <YLTableView/YLRefreshHeaderViewSubclass.h>
 #import <YLTableView/YLTableView.h>
 #import <YLTableView/YLTableViewCell.h>
@@ -23,6 +24,8 @@ FOUNDATION_EXPORT const unsigned char YLTableViewVersionString[];
 #import <YLTableView/YLTableViewDataSource.h>
 #import <YLTableView/YLTableViewDataSourceSubclass.h>
 #import <YLTableView/YLTableViewHeaderFooterView.h>
+#import <YLTableView/YLTableViewPrivate.h>
 #import <YLTableView/YLTableViewSectionHeaderFooterLabelView.h>
 #import <YLTableView/YLTableViewSectionHeaderFooterView.h>
+#import <YLTableView/YLTableViewSectionHeaderFooterViewPrivate.h>
 #import <YLTableView/YLTableViewSectionHeaderFooterViewSubclass.h>
