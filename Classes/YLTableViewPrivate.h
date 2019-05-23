@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Yelp. All rights reserved.
 //
 
+// NOTE: This header is not actually private. See PR#41: https://github.com/Yelp/YLTableView/pull/41
+
 #import "YLTableView.h"
 
 @class YLTableViewSectionHeaderFooterView;
