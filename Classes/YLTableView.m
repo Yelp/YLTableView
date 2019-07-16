@@ -48,11 +48,12 @@ NS_ASSUME_NONNULL_END
 
 - (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier {
   NSAssert(identifier, @"Must have a reuse identifier.");
-  NSAssert([cellClass conformsToProtocol:@protocol(YLTableViewCell)], @"You can only use cells conforming to YLTableViewCell.");
 
   [super registerClass:cellClass forCellReuseIdentifier:identifier];
 
   if (cellClass) {
+    NSAssert([cellClass conformsToProtocol:@protocol(YLTableViewCell)], @"You can only use cells conforming to YLTableViewCell.");
+      
     self.cellClassForReuseIdentifier[identifier] = cellClass;
   } else {
     [self.cellClassForReuseIdentifier removeObjectForKey:identifier];

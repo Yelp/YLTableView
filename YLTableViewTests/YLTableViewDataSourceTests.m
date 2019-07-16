@@ -76,6 +76,16 @@ static NSString *const kCustomReuseIdentifier = @"NotAClass-ReuseId";
   XCTAssertThrows([self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"]);
 }
 
+- (void)testUnregistereredTableCell {
+  NSString *const kUnregisteredReuseIdentifier = @"UnregisteredClass-ReuseId";
+    
+  [self.tableView registerClass:[YLTableViewCellTestStub class] forCellReuseIdentifier:kUnregisteredReuseIdentifier];
+  XCTAssertNotNil([self.tableView dequeueReusableCellWithIdentifier:kUnregisteredReuseIdentifier]);
+    
+  [self.tableView registerClass:nil forCellReuseIdentifier:kUnregisteredReuseIdentifier];
+  XCTAssertNil([self.tableView dequeueReusableCellWithIdentifier:kUnregisteredReuseIdentifier]);
+}
+
 - (void)testEstimatedRowHeightOverride {
   self.dataSource.shouldOverrideEstimatedRowHeight = YES;
   CGFloat height = [self.dataSource tableView:self.tableView estimatedHeightForRowAtIndexPath:[self _indexPathForCustomReuseIdentifier]];
